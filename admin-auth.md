@@ -1,0 +1,8 @@
+# Admin User Authentication and Authorization Error Messages
+
+| Service Origin    | Error                                        | Reason                                                                                  | Resolution                                                                                    |
+| :----:            | :----:                                       | :----:                                                                                  | :----:                                                                                        |
+| Admin Auth/Roles  | User does not have the required permissions  | User's role does not allow access.                                                      | Update user's role if permitted                                                                            |
+| Admin Auth        | Invalid username or password                 | Credentials the user entered may be incorrect or an account may not exist for the user. | Determine if account exists. If yes, have user ensure correct credentials enter or reset password         |
+| Admin Auth        | Username is required                         | User did not enter username in login form                                               | Have user ensure username entered in form                                                     |
+| Admin Auth        | Password is required                         | User did not enter username in login form                                               | Have user ensure password entered in form                                                     |
