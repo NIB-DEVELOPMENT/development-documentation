@@ -6,8 +6,8 @@
 
 |Type|Download|
 |:--:|:--:|
-|PDF|[User Service ERD](assets/pdf/user-service.pdf)|
-|PDD|[User Service ERD](assets/pdd/user-service.pdd)|
+|PDF|<a href="assets/pdf/user-service.pdf" download>User Service ERD</a>|
+|PDD|<a href="assets/pdd/user-service.pdd" download>User Service ERD</a>|
 
 ## ADMIN AUTH
 
@@ -15,8 +15,8 @@
 
 |Type|Download|
 |:--:|:--:|
-|PDF|[NIB Admin Auth ERD](assets/pdf/admin-auth.pdf)|
-|PDD|[NIB Admin Auth ERD](assets/pdd/admin-auth.pdd)|
+|PDF|<a href="assets/pdf/admin-auth.pdf" download>Admin Auth ERD</a>|
+|PDD|<a href="assets/pdd/admin-auth.pdd" download>Admin Auth ERD</a>|
 
 ## DEMOGRAPHIC SERVICE
 
@@ -24,8 +24,8 @@
 
 |Type|Download|
 |:--:|:--:|
-|PDF|[Demographics ERD](assets/pdf/demographic-service.pdf)|
-|PDD|[Demographics ERD](assets/pdd/demographic-service.pdd)|
+|PDF|<a href="assets/pdf/demographic-service.pdf" download>Demographic Service ERD</a>|
+|PDD|<a href="assets/pdd/demographic-service.pdd" download>Demographic Service ERD</a>|
 
 ## ONLINE CARDS
 
@@ -33,8 +33,8 @@
 
 |Type|Download|
 |:--:|:--:|
-|PDF|[NIB Online Cards ERD](assets/pdf/online-cards.pdf)|
-|PDD|[NIB Online Cards ERD](assets/pdd/online-cards.pdd)|
+|PDF|<a href="assets/pdf/online-cards.pdf" download>Online Cards ERD</a>|
+|PDD|<a href="assets/pdd/online-cards.pdd" download>Online Cards ERD</a>|
 
 ## ONLINE CARDS ADMIN
 
@@ -42,8 +42,8 @@
 
 |Type|Download|
 |:--:|:--:|
-|PDF|[NIB Online Cards Admin ERD](assets/pdf/online-cards-admin.pdf)|
-|PDD|[NIB Online Cards Admin ERD](assets/pdd/online-cards-admin.pdd)|
+|PDF|<a href="assets/pdf/online-cards-admin.pdf" download>Online Cards Admin ERD</a>|
+|PDD|<a href="assets/pdd/online-cards-admin.pdd" download>Online Cards Admin ERD</a>|
 
 ## EMAIL SERVICE
 
@@ -51,5 +51,5 @@
 
 |Type|Download|
 |:--:|:--:|
-|PDF|[NIB Email Service ERD](assets/pdf/email-service.pdf)|
-|PDD|[NIB Email Service ERD](assets/pdd/email-service.pdd)|
+|PDF|<a href="assets/pdf/email-service.pdf" download>Email Service ERD</a>|
+|PDD|<a href="assets/pdd/email-service.pdd" download>Email Service ERD</a>|
