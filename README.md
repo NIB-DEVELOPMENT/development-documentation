@@ -3,7 +3,7 @@
 This is a centralized place for the development department's user documentation.
 
 ### Tutorials
-Online portal: <a href='tutorials/online-portal-admin.md'> Go here </a>
+Online portal: Coming soon
 
 Online portal admin <a href='tutorials/online-portal-admin.md'> Go here</a>
 
