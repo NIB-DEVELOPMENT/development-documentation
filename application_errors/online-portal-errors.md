@@ -7,28 +7,29 @@
 | Admin Auth        | Username is required                         | User did not enter username in login form                                               | Have user ensure username entered in form                                                     |
 | Admin Auth        | Password is required                         | User did not enter username in login form                                               | Have user ensure password entered in form                                                     |
 
-##Demographics
+## Demographics
 
-| Service origin    | Error                                      | Reason                                               | Resolution                                           |
-| ----------------- | ---------------------------------- | ------------------------------------------ | ---------------------------------------------------- | ---------------------------------------------------- |
-| Bank branches             | No Bank Branches Found                     | No bank branches are found - internally              | None                                                 |
-| Claimaint address      | Invalid address type                       | Invalid address type for a claimaint                 | Choose a valid address type (Mailing or Residential) |
-| Claimaint address  Start date cannot be before current date   | The beginning date is before the current date        | Choose a later calandar date                         |
-| Claimaint address | This state does not belong to this country | The chosen state is not located in the chose country | Choose a state within the selected country           |
-| Claimaint address                  | No States Found                            | No states are found - internally                     | None                                                 |
-| Claimaint address          | No Address Types Found                     | No address types found - internally                  | None                                                 |
-| Claimaint contact                | No Countries Found                         | No countries found - internally                      | None                                                 |
-| Claimaint contact                | Phone type is invalid                      | Not a valid phone type                               | Choose a valid phone type (Home, Mobile, Work)       |
-| Claimaint contact             | No Phone Types Found                       | No phone types found - internally                    | None                                                 |
-| Local office               | No Local Offices Found                     | No local offices found - internally                  | None                                                 |
-| User                                 | User not found                             | User not found with inputted nib address             | Ensure that NIB number is correct                    |
-| User Local Office                 | User is required                           | User object is required - internally                 | None                                                 |
-| User Local Office        | Local Office is required                   | Local office is required - internally                | None                                                 |
+| Service origin    | Error                                       | Reason                                                                                  | Resolution                                                                                        |
+| ----------------- | ------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Bank branches     | No Bank Branches Found                      | No bank branches are found - internally                                                 | None                                                                                              |
+| Claimaint address | Invalid address type                        | Invalid address type for a claimaint                                                    | Choose a valid address type (Mailing or Residential)                                              |
+| Claimaint address | Start date cannot be before current date    | The beginning date is before the current date                                           | Choose a later calandar date                                                                      |
+| Claimaint address | This state does not belong to this country  | The chosen state is not located in the chose country                                    | Choose a state within the selected country                                                        |
+| Claimaint address | No States Found                             | No states are found - internally                                                        | None                                                                                              |
+| Claimaint address | No Address Types Found                      | No address types found - internally                                                     | None                                                                                              |
+| Claimaint contact | No Countries Found                          | No countries found - internally                                                         | None                                                                                              |
+| Claimaint contact | Phone type is invalid                       | Not a valid phone type                                                                  | Choose a valid phone type (Home, Mobile, Work)                                                    |
+| Claimaint contact | No Phone Types Found                        | No phone types found - internally                                                       | None                                                                                              |
+| Local office      | No Local Offices Found                      | No local offices found - internally                                                     | None                                                                                              |
+| User              | User not found                              | User not found with inputted nib address                                                | Ensure that NIB number is correct                                                                 |
+| User Local Office | User is required                            | User object is required - internally                                                    | None                                                                                              |
+| User Local Office | Local Office is required                    | Local office is required - internally                                                   | None                                                                                              |
+| Admin Auth/Roles  | User does not have the required permissions | User's role does not allow access.                                                      | Update user's role if permitted                                                                   |
+| Admin Auth        | Invalid username or password                | Credentials the user entered may be incorrect or an account may not exist for the user. | Determine if account exists. If yes, have user ensure correct credentials enter or reset password |
+| Admin Auth        | Username is required                        | User did not enter username in login form                                               | Have user ensure username entered in form                                                         |
+| Admin Auth        | Password is required                        | User did not enter username in login form                                               | Have user ensure password entered in form                                                         |
 
-
-##Email
-
-<h1 style="text-align:center">Email Service Error Messages</h1>
+## Email Service
 
 | Service Origin         | Error                                                       | Reason                                                                                  | Resolution                                                                                    |
 | :----                  | :----                                                       | :----                                                                                   | :----                                                                                        |
