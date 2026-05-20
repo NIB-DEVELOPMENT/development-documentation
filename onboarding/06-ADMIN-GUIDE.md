@@ -3,7 +3,7 @@
 **Audience:** NIB staff who process citizen applications — Customer Service officers, Family Island Unit (FIU) staff, OHSU staff, Registration staff, supervisors, and department heads.
 **Purpose:** End-to-end operational walkthrough of the admin portal plus authoritative role reference.
 **URL:** [https://nibonline-admin.nib-bahamas.com](https://nibonline-admin.nib-bahamas.com)
-**Screenshots captured:** Captured from the staging environment (`staging-nibonline-admin.nib-bahamas.com`) via Playwright. Some authenticated screens are currently placeholders pending test admin credentials — see the bottom of this doc for the capture procedure.
+**Screenshots captured:** From the staging environment (`staging-nibonline-admin.nib-bahamas.com`) via Playwright, using a `DEPARTMENT HEAD CS`-tier admin account. Production looks identical — same image tag, same SPA. Role-gated UI elements visible here may differ for other roles (see §7 for the role matrix).
 
 ---
 
@@ -32,8 +32,6 @@ Open [nibonline-admin.nib-bahamas.com](https://nibonline-admin.nib-bahamas.com) 
 
 ![Admin login page](images/admin/01-admin-login.png)
 
-> *Note: this screenshot will be populated once test admin credentials are provided. For now the staging admin URL is reachable but capture is pending.*
-
 **What you need:**
 
 - Your **LDAP username** (the same one you use for other NIB internal systems)
@@ -48,30 +46,44 @@ If you can't sign in, contact NIB IT to verify your LDAP account and roles. The 
 
 ---
 
-## 2. Your Admin Dashboard
+## 2. The Applications Hub
 
-After signing in, you land on your dashboard. The dashboard shows the application queues you can act on and any statistics or routing information for your role.
+After signing in, you land on the **Applications hub** — a chooser for the two application domains you can work in.
 
-![Admin dashboard](images/admin/02-admin-dashboard.png) *(pending capture)*
+![Applications hub](images/admin/02-applications-hub.png)
 
-The top nav has two main sections:
+Two large cards represent the two domains:
 
-- **Cards** — NIB card applications (new / renewal / replacement)
-- **Claims** — benefit claims (Sickness, Unemployment, Maternity, Funeral, Retirement, Injury, Surviving Spouse)
+- **Online Card Renewals** — Search and manage online card renewal applications.
+- **Claims** — Search and manage online claim applications.
 
-Plus your name and a sign-out option in the top right.
+Click either card to jump into that domain's queue. The top nav has two tabs — **Dashboard** and **Applications** — plus your name and an account menu in the top right.
 
-> Your dashboard contents depend on your role. Supervisors and department heads see broader views; CS officers and non-supervisor FIU staff see only what's assigned to them or to their local office. See [Role Reference](#7-role-reference-authoritative).
+> The Dashboard tab (the `/dashboard` route) currently displays the same content as the Applications hub for most roles. Aggregate statistics may render here for users with elevated visibility (Department Head, Manager FIU).
+>
+> Your hub contents depend on your role. Supervisors and department heads see broader views; non-supervisor CS officers and non-supervisor FIU staff see only what's assigned to them or to their local office. See [Role Reference](#7-role-reference-authoritative).
 
 ---
 
 ## 3. Finding an Application (The Queue)
 
-Click **Claims** or **Cards** in the top nav to reach the queue for that domain.
+Click **Online Card Renewals** or **Claims** from the Applications hub to reach the queue for that domain.
 
-![Claims queue](images/admin/03-claims-queue.png) *(pending capture)*
+### 3.1 Claim Applications queue
 
-The queue is a paginated, filterable table of applications. Common filter shortcuts:
+![Claim applications queue](images/admin/04-claims-queue.png)
+
+The queue is a paginated, filterable table of claim applications. The header shows the result count (e.g., **"Results found: 71"**) and the table lists Application ID, NI Number, claimant name, application type (Sickness, Unemployment, etc.), status, local office, and inserted date. Click any row to open the detail page.
+
+### 3.2 Card Applications queue
+
+![Card applications queue](images/admin/05-cards-queue.png)
+
+Identical filter form to claims, but result rows show **Application Type** values like "Renewal" instead of benefit types. The right-most column may show a "NO ACTION" tag for applications with outstanding work.
+
+### 3.3 Common filters
+
+Both queues share the same filter form at the top:
 
 | Filter | What it shows |
 |---|---|
@@ -92,11 +104,39 @@ The **Routed-To** column shows which officer currently owns the application. An 
 
 ## 4. Reviewing an Application
 
-Click any row in the queue to open the application detail page.
+Click any row in the queue to open the application detail page. The layout differs slightly between claims and cards but both follow the same skeleton.
 
-![Claims application detail](images/admin/05-claims-application-detail.png) *(pending capture)*
+### Claims application detail
 
-The detail page is divided into sections:
+![Claims application detail](images/admin/06-claims-application-detail.png)
+
+A claims detail page shows the claim type as the header (e.g., **"Unemployment Claim #1"**) with status badge, **Approve / Deny** action buttons in the top right (visible only if you have the [claims `canEdit` role](#74-what-each-role-can-do--claims-portal)), **Routed To: <officer>**, and sections for:
+
+- **Claimant Details** — name, NI Number, email
+- **<Claim Type> Claim Details** — claim-type-specific fields (e.g., Unemployment: last working date, employer, pension info, leiu notice days, severance days, vacation days)
+- **Application Documents** — uploaded files (passport, B80 Employer's Certificate, etc.) with **Download**, **Upload History**, plus top-right **Generate Pdf** and **Request Reuploads** action links
+- **Contact Information** — phone numbers + primary contact flag
+- **Application address Information** — claimant's mailing/physical address
+- Below: **Activity Log** (audit trail)
+
+### Card application detail
+
+![Card application detail](images/admin/07-cards-application-detail.png)
+
+A card detail page shows simpler header (e.g., **"Application #2"** with status), and the action buttons depend on your role:
+
+- If you have cards `canEdit` (Supervisor R / Dept Head R / Manager FIU / Sub Office Manager FIU): **Approve / Deny / Ready for Pickup**
+- Otherwise: only **Route To Me** (the only action a non-canEdit role can take)
+
+Sections:
+
+- **Person Information** — full name, NI Number, **Registrant Type** (Bahamian / Non-Bahamian), gender, DOB, country of nationality, marital status
+- **Application Information** — application type (New / Renewal / Replacement), reason for name change (if applicable), name changed to, **Ready for Pickup** flag, **Local Office** dropdown
+- **Non-Bahamian Details** — *(visible only for non-Bahamian registrants)*: permanent-resident flag, resident card number + expiry, work permit number + expiry
+- **Application Documents** — R4 form, Passport, Work Permit, etc. (varies by registrant type and application type)
+- **Contact Information** + **Address Information**
+
+### Detail-page sections at a glance:
 
 1. **Header** — claimant name, NIB number, application type, status, submission date, current routed-to officer
 2. **Demographic information** — addresses and contacts on file (read from `demographic-service`)
@@ -208,9 +248,7 @@ Filter by activity type or date range if the log is long.
 
 ## 6. The Dashboard / Statistics
 
-If you have the appropriate role, the dashboard shows aggregate statistics for your scope:
-
-![Dashboard statistics](images/admin/07-dashboard-statistics.png) *(pending capture)*
+The **Dashboard** tab in the top nav is where aggregate statistics for your scope render. For most roles, it currently displays the same Applications hub layout shown in §2. Roles with elevated visibility (Department Head, Manager FIU, etc.) may see additional widgets:
 
 - Pending review count
 - Applications routed to me
@@ -426,7 +464,7 @@ npx playwright test specs/admin/screenshots/admin-walkthrough.spec.ts --project=
 
 The captures use the LDAP user's actual roles to render screens — so screens you can see depend on the test account's role. For full role-by-role coverage you'd need multiple test accounts with different role assignments. For most documentation purposes, a single Department-Head-tier account (which sees everything) is sufficient.
 
-> Placeholders in this doc will be replaced with real screenshots once `TEST_ADMIN_PASSWORD` is set in `e2e/.env` and the capture spec runs successfully.
+> Note: the captures embedded in this doc were taken using a `DEPARTMENT HEAD CS` test account (LDAP user `lionels`). That role has claims approve/deny rights but NOT cards approve/deny rights — which is why the cards detail page shows only **"Route To Me"** in §4 while the claims detail shows **Approve / Deny**. If you'd like role-specific variants for other roles, run the capture from an LDAP account with that role.
 
 ---
 
