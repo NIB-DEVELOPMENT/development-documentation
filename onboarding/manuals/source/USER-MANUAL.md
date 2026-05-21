@@ -1,9 +1,30 @@
-# NIB Online Portal — Citizen User Guide
+---
+title: User Manual
+subtitle: NIB Online Portal
+audience: For Bahamian Citizens
+version: 1.0
+date: 2026-05-20
+---
 
-**Audience:** Bahamian citizens using the NIB Online Portal to apply for benefits and NIB cards.
-**Purpose:** Walks you through every screen and action in the customer portal.
-**URL:** [https://nibonline.nib-bahamas.com](https://nibonline.nib-bahamas.com)
-**Screenshots captured:** From the staging environment (`staging-nibonline.nib-bahamas.com`) 2026-05-19. Production screens are visually identical.
+## About This Manual
+
+This manual walks you through every screen and action in the **NIB Online Portal** — the website Bahamian citizens use to apply for benefits and NIB cards online.
+
+**Portal address:** [https://nibonline.nib-bahamas.com](https://nibonline.nib-bahamas.com)
+
+**Who should read this:** Any Bahamian citizen who wants to use the online portal instead of visiting an NIB office in person.
+
+**What you'll learn:**
+
+- How to create an account and sign in
+- How to apply for each of the 6 benefit types (claims)
+- How to apply for a new, renewed, or replacement NIB card
+- How to upload supporting documents
+- How to respond when NIB asks you to re-upload a document
+- How to update your personal information and banking details
+- How to check the status of every application you've submitted
+
+If you have questions this manual doesn't cover, visit your nearest **NIB Local Office** or contact NIB Customer Service.
 
 ---
 
@@ -260,17 +281,12 @@ For password / sign-in issues that the self-service flows can't fix, NIB Custome
 
 ---
 
-## How These Screenshots Were Captured
+## Document Information
 
-These screenshots were captured automatically with **Playwright** running against staging. The capture spec lives at `e2e/specs/customer/screenshots/citizen-walkthrough.spec.ts` in the workspace and can be re-run any time to refresh the visuals (handy when the SPA gets a redesign):
+**Title:** NIB Online Portal — User Manual
+**Audience:** Bahamian Citizens
+**Version:** 1.0
+**Issued:** 2026-05-20
+**Published by:** National Insurance Board of The Bahamas
 
-```bash
-cd e2e
-npx playwright test specs/customer/screenshots/citizen-walkthrough.spec.ts --project=customer-portal
-```
-
-Credentials for the test citizen come from `e2e/.env` (`TEST_CUSTOMER_EENI` / `TEST_CUSTOMER_PASSWORD`). Captures land in `development-documentation/onboarding/images/citizen/`.
-
----
-
-**Next:** see [`06-ADMIN-GUIDE.md`](./06-ADMIN-GUIDE.md) for the NIB staff perspective (reviewing and processing the applications citizens submit here).
+Screenshots reflect the portal as of the issue date. Future updates to the portal may change minor visual details but the workflow described in this manual will remain the same. If you notice a significant difference between this manual and what you see on screen, please notify NIB Customer Service.

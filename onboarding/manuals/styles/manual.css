@@ -1,0 +1,299 @@
+/* =============================================================================
+ * NIB Online Portal — Manual print stylesheet
+ *
+ * Brand palette (sourced from online-claims-submissions-frontend/tailwind.config.js):
+ *   --nib-primary       : #1e40af  (Tailwind blue-800)
+ *   --nib-primary-light : #1d4ed8  (Tailwind blue-700)
+ *   --nib-primary-dark  : #1e3a8a  (Tailwind blue-900)
+ *
+ * Used by manuals/generate.py via WeasyPrint.
+ * ============================================================================= */
+
+@page {
+  size: Letter;
+  margin: 0.9in 0.75in 1in 0.75in;
+
+  @bottom-left {
+    content: string(manual-title);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 8.5pt;
+    color: #888;
+  }
+
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 8.5pt;
+    color: #888;
+  }
+
+  @bottom-center {
+    content: "National Insurance Board of The Bahamas";
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 8.5pt;
+    color: #888;
+  }
+}
+
+/* No header/footer on the cover */
+@page :first {
+  margin: 0;
+  @bottom-left   { content: none; }
+  @bottom-right  { content: none; }
+  @bottom-center { content: none; }
+}
+
+/* === COVER PAGE ============================================================ */
+.cover {
+  page: cover;
+  page-break-after: always;
+  height: 11in;          /* full page on Letter */
+  width: 8.5in;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(160deg, #1e3a8a 0%, #1d4ed8 100%);
+  color: white;
+  padding: 1.5in 1in;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.cover .logo {
+  width: 220px;
+  height: auto;
+  margin-bottom: 0.6in;
+  filter: brightness(0) invert(1);  /* white logo on dark cover */
+}
+
+.cover h1 {
+  font-size: 38pt;
+  margin: 0 0 0.25in 0;
+  font-weight: 700;
+  border: none;
+  page-break-before: avoid;
+  letter-spacing: -0.5pt;
+  color: white;
+}
+
+.cover .subtitle {
+  font-size: 18pt;
+  font-weight: 300;
+  margin: 0 0 0.6in 0;
+  opacity: 0.92;
+}
+
+.cover .audience {
+  font-size: 14pt;
+  font-style: italic;
+  margin: 0 0 0.4in 0;
+  opacity: 0.88;
+}
+
+.cover .accent-line {
+  width: 80px;
+  height: 3pt;
+  background: white;
+  opacity: 0.6;
+  margin: 0.3in auto;
+}
+
+.cover .meta {
+  position: absolute;
+  bottom: 0.75in;
+  left: 0;
+  right: 0;
+  font-size: 10pt;
+  opacity: 0.85;
+  letter-spacing: 0.5pt;
+}
+
+.cover .meta strong { color: white; font-weight: 600; }
+
+/* === BODY ================================================================== */
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.55;
+  color: #2a2a2a;
+  string-set: manual-title attr(data-manual-title);
+}
+
+h1, h2, h3, h4 {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1e40af;
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: 22pt;
+  margin: 0.4in 0 0.15in 0;
+  padding-bottom: 8pt;
+  border-bottom: 2.5pt solid #1e40af;
+  page-break-before: always;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+h1.no-page-break {
+  page-break-before: avoid;
+}
+
+h2 {
+  font-size: 15.5pt;
+  margin: 0.32in 0 0.1in 0;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 12.5pt;
+  margin: 0.2in 0 0.08in 0;
+  color: #334155;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 11.5pt;
+  font-weight: 600;
+  margin: 0.15in 0 0.05in 0;
+  color: #475569;
+}
+
+p, ul, ol, table { margin: 0.05in 0 0.1in 0; }
+li { margin: 2pt 0; }
+
+/* === TABLES =============================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.12in 0;
+  font-size: 10pt;
+  page-break-inside: avoid;
+}
+
+th {
+  background: #eff4ff;       /* very light blue */
+  color: #1e3a8a;
+  text-align: left;
+  padding: 7pt 9pt;
+  border-bottom: 2pt solid #1e40af;
+  font-weight: 600;
+  font-size: 10pt;
+}
+
+td {
+  padding: 6pt 9pt;
+  border-bottom: 0.5pt solid #e5e7eb;
+  vertical-align: top;
+}
+
+tr:nth-child(even) td { background: #fafbfd; }
+
+/* === CODE + INLINE ======================================================== */
+code {
+  font-family: "Consolas", "Courier New", monospace;
+  background: #f1f5f9;
+  padding: 1pt 4pt;
+  border-radius: 2pt;
+  font-size: 10pt;
+  color: #1e3a8a;
+}
+
+pre {
+  background: #f8fafc;
+  border-left: 3pt solid #1d4ed8;
+  padding: 9pt 12pt;
+  font-size: 9.5pt;
+  page-break-inside: avoid;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  border-radius: 0 3pt 3pt 0;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: #2a2a2a;
+}
+
+/* === BLOCKQUOTES (callouts) ================================================ */
+blockquote {
+  margin: 0.12in 0;
+  padding: 9pt 14pt;
+  border-left: 3pt solid #f59e0b;     /* amber accent */
+  background: #fffbeb;                 /* soft warm bg */
+  font-size: 10.5pt;
+  page-break-inside: avoid;
+  border-radius: 0 3pt 3pt 0;
+}
+
+blockquote p { margin: 0; }
+
+/* === IMAGES (SCREENSHOTS) ================================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.12in auto;
+  border: 1pt solid #e2e8f0;
+  border-radius: 3pt;
+  page-break-inside: avoid;
+}
+
+/* === TOC =================================================================== */
+.toc {
+  page: toc;
+  page-break-after: always;
+  page-break-before: always;
+}
+
+.toc h2 {
+  border-bottom: 2pt solid #1e40af;
+  padding-bottom: 8pt;
+  page-break-before: avoid;
+  margin-top: 0;
+  font-size: 20pt;
+  color: #1e3a8a;
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc li {
+  margin: 5pt 0;
+  font-size: 11pt;
+}
+
+.toc li ul {
+  padding-left: 0.3in;
+  margin: 3pt 0;
+}
+
+.toc li ul li {
+  font-size: 10pt;
+  color: #475569;
+  margin: 2pt 0;
+}
+
+.toc a {
+  color: #1e40af;
+  text-decoration: none;
+}
+
+/* === LINKS ================================================================ */
+a { color: #1d4ed8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === MISC ================================================================= */
+hr {
+  border: none;
+  border-top: 0.5pt solid #e2e8f0;
+  margin: 0.2in 0;
+}
+
+strong { color: #1e3a8a; font-weight: 600; }
