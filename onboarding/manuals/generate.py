@@ -59,7 +59,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <div class="audience">{audience}</div>
   <div class="meta">
     <strong>Version {version}</strong>  •  {date}<br>
-    National Insurance Board of The Bahamas
+    The National Insurance Board of The Commonwealth of The Bahamas
   </div>
 </section>
 

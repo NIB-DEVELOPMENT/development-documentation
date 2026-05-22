@@ -1,0 +1,9 @@
+# Firecrawl working dirs — scrape artifacts, not deliverable
+.firecrawl/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
