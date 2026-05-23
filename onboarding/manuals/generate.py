@@ -52,7 +52,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body data-manual-title="{title}">
 
 <section class="cover">
-  <img src="styles/nib-logo.png" class="logo" alt="NIB" />
+  <img src="manuals/styles/nib-logo.png" class="logo" alt="NIB" />
   <h1>{title}</h1>
   <div class="subtitle">{subtitle}</div>
   <div class="accent-line"></div>

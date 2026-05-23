@@ -297,9 +297,15 @@ img {
   border-bottom: 2pt solid #1e40af;
   padding-bottom: 8pt;
   page-break-before: avoid;
+  page-break-after: avoid;     /* keep "Contents" header attached to the list */
   margin-top: 0;
   font-size: 20pt;
   color: #1e3a8a;
+}
+
+/* Keep the first chunk of TOC entries attached to the header even when the TOC spans multiple pages */
+.toc > ul:first-of-type {
+  page-break-before: avoid;
 }
 
 .toc ul {
