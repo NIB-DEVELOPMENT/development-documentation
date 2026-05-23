@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document Storage Brief — JUMVM16FILESRV2</title>
+<link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<header class="doc-topbar">
+  <div class="doc-topbar__inner">
+    <a class="doc-topbar__logo" href="index.html">
+      <img src="../assets/nib-logo-no-text.png" alt="NIB">
+      <div>
+        <div class="doc-topbar__title">NIB Online Portal</div>
+        <div class="doc-topbar__sub">Documentation</div>
+      </div>
+    </a>
+    <span class="doc-topbar__audience doc-topbar__audience--storage">Storage Brief · Confidential</span>
+    <div class="doc-topbar__spacer"></div>
+    <nav class="doc-topbar__nav">
+      <a href="index.html">Home</a>
+      <a href="user-manual.html">User</a>
+      <a href="admin-manual.html">Admin</a>
+      <a href="supervisor-manual.html">Supervisor</a>
+      <a href="storage-brief.html" class="is-current">Storage</a>
+    <a class="doc-topbar__pdf" href="#" onclick="event.preventDefault(); window.exportPDF('NIB-Document-Storage-Brief-2026-05-20.pdf');" title="Generate and download a real PDF (no print dialog)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>PDF</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-layout">
+
+  <aside class="doc-sidebar">
+    <p class="doc-sidebar__title">On this page</p>
+    <ul class="doc-sidebar__list">
+      <li><a href="#summary">Executive summary</a></li>
+      <li><a href="#current">Current state</a></li>
+      <li><a href="#ingest">Daily ingest</a></li>
+      <li><a href="#projection">Monthly &amp; annual projection</a></li>
+      <li><a href="#runway">Runway scenarios</a></li>
+      <li><a href="#compression">Automated compression job</a></li>
+      <li><a href="#sources">Data sources</a></li>
+    </ul>
+  </aside>
+
+  <main class="doc-main">
+
+    <div class="confidential-banner">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+      <span>CONFIDENTIAL · Internal Use Only · The National Insurance Board · Document Storage Brief · JUMVM16FILESRV2</span>
+    </div>
+
+    <div class="doc-hero">
+      <div class="doc-hero__eyebrow">Server Brief · JUMVM16FILESRV2</div>
+      <h1 class="doc-hero__title">Document Storage Brief</h1>
+      <p class="doc-hero__sub">Current state and growth projection for the file server holding all scanned documents from OptiView, OptiView&nbsp;v3, and OptiNew.</p>
+      <div class="doc-hero__meta">
+        <span><strong>Server:</strong> JUMVM16FILESRV2</span>
+        <span><strong>Prepared:</strong> 2026-05-20</span>
+        <span><strong>Classification:</strong> Internal</span>
+      </div>
+    </div>
+
+    <h2 id="summary"><span class="doc-h-num">§</span>Executive summary</h2>
+    <p>Document scan storage on JUMVM16FILESRV2 is <strong>stable</strong>. The historical compression backlog is complete and an automated nightly compression job is now scheduled, extending current runway from approximately <strong>2.7 months</strong> to approximately <strong>10 months</strong> at the present ingest rate.</p>
+    <p>Compression scope covers scan files from the legacy OptiView system (including v3) and the current OptiNew system, which share the same on-disk store.</p>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat__label">Runway today</div>
+        <div class="stat__value">~10 mo</div>
+        <div class="stat__sub">Up from 2.7 mo before compression</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Combined free (E: + G:)</div>
+        <div class="stat__value">3.4 TB</div>
+        <div class="stat__sub">Working budget for new scans</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Files indexed</div>
+        <div class="stat__value">24.98M</div>
+        <div class="stat__sub">History back to 2004-12-06 · ~21 years</div>
+      </div>
+      <div class="stat">
+        <div class="stat__label">Net daily growth</div>
+        <div class="stat__value">~13 GB</div>
+        <div class="stat__sub">After JPEG-q85 compression</div>
+      </div>
+    </div>
+
+    <h2 id="current"><span class="doc-h-num">1.</span>Current state (2026-05-20)</h2>
+    <table>
+      <thead><tr><th>Drive</th><th>Role</th><th style="text-align:right">Free</th><th style="text-align:right">Total</th><th style="text-align:right">Used</th><th>Fill</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>E:</code></td>
+          <td>Live scan store (OptiView, v3 &amp; OptiNew)</td>
+          <td style="text-align:right">2.7 TB</td>
+          <td style="text-align:right">16.2 TB</td>
+          <td style="text-align:right"><strong>84%</strong></td>
+          <td style="min-width: 120px"><div class="bar"><div class="bar__fill bar__fill--warn" style="width: 84%"></div></div></td>
+        </tr>
+        <tr>
+          <td><code>G:</code></td>
+          <td>Junction targets &amp; archive</td>
+          <td style="text-align:right">680 GB</td>
+          <td style="text-align:right">5.0 TB</td>
+          <td style="text-align:right"><strong>87%</strong></td>
+          <td><div class="bar"><div class="bar__fill bar__fill--warn" style="width: 87%"></div></div></td>
+        </tr>
+        <tr>
+          <td><code>H:</code></td>
+          <td>Migration tier &amp; quarantine</td>
+          <td style="text-align:right">23.0 TB</td>
+          <td style="text-align:right">24.0 TB</td>
+          <td style="text-align:right"><strong>6%</strong></td>
+          <td><div class="bar"><div class="bar__fill bar__fill--ok" style="width: 6%"></div></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <dl class="defstrip" style="margin-top: 24px;">
+      <div><dt>Total files indexed</dt><dd>24,979,643 (history back to 2004-12-06; ~21 years)</dd></div>
+      <div><dt>Combined free E: + G: today</dt><dd>3.4 TB</dd></div>
+      <div><dt>Backlog campaign</dt><dd>Complete. Feb-Apr 2026 reclaim of ~2.17 TB returned to E:.</dd></div>
+      <div><dt>Quarantine footprint (H:)</dt><dd>Steady ~80-100 GB rolling, 2-day retention.</dd></div>
+    </dl>
+
+    <h2 id="ingest"><span class="doc-h-num">2.</span>Daily ingest rate</h2>
+    <table>
+      <thead><tr><th>Window</th><th style="text-align:right">Files / day</th><th style="text-align:right">GB / day</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>14-day average</strong> (all days)</td><td style="text-align:right">~5,300</td><td style="text-align:right">~38 GB</td><td>Uncompressed</td></tr>
+        <tr><td><strong>Weekday-only average</strong></td><td style="text-align:right">~7,250</td><td style="text-align:right">~51.5 GB</td><td>Uncompressed</td></tr>
+        <tr><td><strong>Weekend average</strong></td><td style="text-align:right">~0</td><td style="text-align:right">~0</td><td>Idle</td></tr>
+        <tr><td><strong>After JPEG-q85 compression</strong></td><td style="text-align:right">—</td><td style="text-align:right">~13 GB</td><td>65.5% reclaim · durable footprint</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="projection"><span class="doc-h-num">3.</span>Monthly &amp; annual projection</h2>
+    <table>
+      <thead><tr><th>Horizon</th><th style="text-align:right">Raw ingest (uncompressed)</th><th style="text-align:right">Post-compression footprint</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Per day</strong></td><td style="text-align:right">~38 GB</td><td style="text-align:right"><strong>~13 GB</strong></td></tr>
+        <tr><td><strong>Per month</strong></td><td style="text-align:right">~1.14 TB</td><td style="text-align:right"><strong>~393 GB</strong></td></tr>
+        <tr><td><strong>Per year</strong></td><td style="text-align:right">~13.7 TB</td><td style="text-align:right"><strong>~4.7 TB</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout--tip">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.355a7.5 7.5 0 1 0-7.5-7.5c0 1.355.18 2.668.515 3.917L3 21l4.583-.916a7.5 7.5 0 0 0 4.917.916z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">Compression buys roughly 2.9× headroom.</span>
+        Once the daily compression task runs in steady state, on-disk growth is bounded by the post-compression footprint, not the raw ingest figure.
+      </div>
+    </div>
+
+    <h2 id="runway"><span class="doc-h-num">4.</span>Runway scenarios (E: + G: combined free)</h2>
+    <table>
+      <thead><tr><th>Scenario</th><th style="text-align:right">Net daily growth</th><th>Runway from today</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>No compression (status quo if untreated)</td>
+          <td style="text-align:right">~38 GB/day</td>
+          <td><span class="chip-inline chip-inline--denied">~2.7 months</span></td>
+        </tr>
+        <tr>
+          <td>Daily compression task (installed 2026-05-20)</td>
+          <td style="text-align:right">~13 GB/day</td>
+          <td><span class="chip-inline chip-inline--approved">~10 months and stable</span></td>
+        </tr>
+        <tr>
+          <td>Plus Round 2 migration to H: (~1 TB)</td>
+          <td style="text-align:right">~13 GB/day</td>
+          <td><span class="chip-inline chip-inline--approved">Extends further; H: holds cold data</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="compression"><span class="doc-h-num">5.</span>Automated compression job</h2>
+    <p>A Windows Scheduled Task on JUMVM16FILESRV2 now runs <strong>every night at 02:00</strong>, invoking the parallel <code>compress_range.py</code> against the previous day's scans. The job is wrapped in an NSSM service so it exits cleanly after each run; a safety task at <strong>07:30</strong> issues a stop in the unlikely event a run is still active when users return.</p>
+    <p>Compression scope is <strong>unified across all generations on the share</strong> — legacy OptiView, OptiView v3, and current OptiNew — since they share the same on-disk file set.</p>
+
+    <table>
+      <thead><tr><th>Parameter</th><th>Value</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Trigger</strong></td><td>Daily 02:00 local</td><td>Idle window between user shifts</td></tr>
+        <tr><td><strong>Scope</strong></td><td>Yesterday's scans only</td><td>Steady-state daily volume (~6-10k files)</td></tr>
+        <tr><td><strong>Workers</strong></td><td>4 (parallel)</td><td>PIL releases GIL during JPEG encode; ~4.7× speedup</td></tr>
+        <tr><td><strong>Expected wall time</strong></td><td>~5 minutes per night</td><td>Down from ~22 min single-threaded</td></tr>
+        <tr><td><strong>Expected nightly reclaim</strong></td><td>~25 GB</td><td>Roughly 65% of the day's ingest</td></tr>
+        <tr><td><strong>Safety stop</strong></td><td>07:30 daily (<code>sc.exe stop</code>)</td><td>Caps user-hours I/O overlap</td></tr>
+        <tr><td><strong>Quarantine retention</strong></td><td>2 days on H:</td><td>Same-day rollback safety net</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+    <h3 id="sources">Data sources</h3>
+    <p style="font-size: 13px; color: var(--fg-3);">Figures derived from the <code>OV_Files</code> database, <code>shutil.disk_usage</code> snapshots, and the last 14 days of ingest sampled on <strong>2026-05-20</strong>.</p>
+
+    <dl class="defstrip">
+      <div><dt>Title</dt><dd>Document Storage Brief — JUMVM16FILESRV2</dd></div>
+      <div><dt>Classification</dt><dd>CONFIDENTIAL — Internal Use Only</dd></div>
+      <div><dt>Prepared</dt><dd>2026-05-20</dd></div>
+    </dl>
+
+  </main>
+</div>
+
+<footer class="doc-footer">
+  <div class="doc-footer__inner">
+    <em>Reflecting on the past, building the present, securing the future!</em>
+    <p style="margin: 12px 0 0;">Copyright © 2026 The National Insurance Board of The Commonwealth of The Bahamas. Confidential — internal use only.</p>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="pdf-export.js"></script>
+</body>
+</html>

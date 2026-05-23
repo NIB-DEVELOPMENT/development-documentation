@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Manual — NIB Online Portal</title>
+<link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<header class="doc-topbar">
+  <div class="doc-topbar__inner">
+    <a class="doc-topbar__logo" href="index.html">
+      <img src="../assets/nib-logo-no-text.png" alt="NIB">
+      <div>
+        <div class="doc-topbar__title">NIB Online Portal</div>
+        <div class="doc-topbar__sub">Documentation</div>
+      </div>
+    </a>
+    <span class="doc-topbar__audience doc-topbar__audience--admin">Admin Manual</span>
+    <div class="doc-topbar__spacer"></div>
+    <nav class="doc-topbar__nav">
+      <a href="index.html">Home</a>
+      <a href="user-manual.html">User</a>
+      <a href="admin-manual.html" class="is-current">Admin</a>
+      <a href="supervisor-manual.html">Supervisor</a>
+      <a href="storage-brief.html">Storage</a>
+    <a class="doc-topbar__pdf" href="#" onclick="event.preventDefault(); window.exportPDF('NIB-Admin-Manual-v1.0.pdf');" title="Generate and download a real PDF (no print dialog)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>PDF</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-layout">
+
+  <aside class="doc-sidebar">
+    <p class="doc-sidebar__title">On this page</p>
+    <ul class="doc-sidebar__list">
+      <li><a href="#about">About this manual</a></li>
+      <li><a href="#signin">1. Signing in</a></li>
+      <li><a href="#hub">2. The Applications Hub</a></li>
+      <li><a href="#finding">3. Finding an application</a></li>
+      <li><a href="#queue-claims" class="lvl-2">3.1 Claims queue</a></li>
+      <li><a href="#queue-cards"  class="lvl-2">3.2 Cards queue</a></li>
+      <li><a href="#filters"      class="lvl-2">3.3 Using filters</a></li>
+      <li><a href="#role-view"    class="lvl-2">3.4 What you see</a></li>
+      <li><a href="#reviewing">4. Reviewing an application</a></li>
+      <li><a href="#claim-detail" class="lvl-2">4.1 Claim detail</a></li>
+      <li><a href="#card-detail"  class="lvl-2">4.2 Card detail</a></li>
+      <li><a href="#routing"      class="lvl-2">4.3 Routing</a></li>
+      <li><a href="#downloads"    class="lvl-2">4.4 Downloads</a></li>
+      <li><a href="#reupload-req" class="lvl-2">4.5 Re-upload requests</a></li>
+      <li><a href="#audit">5. The Activity Log</a></li>
+      <li><a href="#tasks">6. Common tasks</a></li>
+      <li><a href="#issues">7. Common issues</a></li>
+      <li><a href="#help">8. Need help?</a></li>
+    </ul>
+  </aside>
+
+  <main class="doc-main">
+
+    <div class="doc-hero">
+      <div class="doc-hero__eyebrow">For Customer Service Officers &amp; Staff</div>
+      <h1 class="doc-hero__title">Admin Manual</h1>
+      <p class="doc-hero__sub">How NIB staff use the Admin Portal to review and process the applications citizens submit through the online portal.</p>
+      <div class="doc-hero__meta">
+        <span><strong>Portal:</strong> nibonline-admin.nib-bahamas.com</span>
+        <span><strong>Auth:</strong> LDAP</span>
+        <span><strong>Version:</strong> 1.0</span>
+        <span><strong>Issued:</strong> 2026-05-20</span>
+      </div>
+    </div>
+
+    <h2 id="about"><span class="doc-h-num">§</span>About this manual</h2>
+    <p>This manual covers how NIB staff use the Admin Portal to review and process the applications citizens submit through the online portal.</p>
+
+    <p><strong>Who should read this:</strong></p>
+    <ul>
+      <li>Customer Service Officers (<span class="role role--cs">NON SUPERVISOR CS</span>)</li>
+      <li>Family Island Unit non-supervisor staff (<span class="role role--fiu">NON&nbsp; SUPERVISOR FIU</span>)</li>
+      <li>IT support staff (<span class="role role--it">NON SUPERVISOR IT</span>, <span class="role role--it">SUPERVISOR IT</span>, <span class="role role--it">SECURITY MANAGER IT</span>)</li>
+      <li>OHSU non-supervisor staff (<span class="role role--ohsu">NON&nbsp; SUPERVISOR OHSU</span>)</li>
+      <li>Anyone who needs to route applications, review documents, and request re-uploads</li>
+    </ul>
+
+    <div class="callout callout--warning">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">If you can approve or deny applications, you have a supervisor-tier role.</span>
+        Please read the <a href="supervisor-manual.html">Supervisor Manual</a> instead, which covers the additional approve / deny / reassignment workflows.
+      </div>
+    </div>
+
+    <p><strong>What you'll learn:</strong></p>
+    <ul>
+      <li>How to sign in with your LDAP credentials</li>
+      <li>How to navigate the application queue</li>
+      <li>How to open and review an application's details</li>
+      <li>How to download supporting documents</li>
+      <li>How to route an application to yourself so you can work on it</li>
+      <li>How to request a document re-upload when something is missing or unreadable</li>
+      <li>How to read the activity log for any application</li>
+    </ul>
+
+    <p><strong>What this manual does NOT cover</strong> (those are in the Supervisor Manual):</p>
+    <ul>
+      <li>Approving applications</li>
+      <li>Denying applications (with denial reasons)</li>
+      <li>Re-assigning applications to other officers</li>
+      <li>Changing the local office handling an application</li>
+      <li>Generating official PDF forms (B80, B81, etc.)</li>
+      <li>Office-wide / department-wide statistics</li>
+    </ul>
+    <p>If you have questions this manual doesn't cover, ask your supervisor or contact NIB IT.</p>
+
+    <h2 id="signin"><span class="doc-h-num">1.</span>Signing in</h2>
+    <p>Open <code>nibonline-admin.nib-bahamas.com</code> in your browser. You'll land on the admin login screen.</p>
+    <p><strong>What you need:</strong></p>
+    <ul>
+      <li>Your <strong>LDAP username</strong> (the same one you use for other NIB internal systems)</li>
+      <li>Your <strong>LDAP password</strong></li>
+    </ul>
+    <p>The admin portal authenticates against the corporate LDAP directory. After your password is verified, the system looks up your roles from the Oracle <code>dbo.security_role_user</code> table to determine what you're allowed to do.</p>
+
+    <div class="callout callout--info">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">If LDAP works but you get a "no permission" toast</span>
+        Your account doesn't yet have an admin role assigned. Ask your department head to request the appropriate role from NIB IT.
+      </div>
+    </div>
+
+    <div class="callout callout--danger">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">LDAP password doesn't work?</span>
+        Contact NIB IT. The admin portal does <strong>NOT</strong> have a self-service password reset.
+      </div>
+    </div>
+
+    <h2 id="hub"><span class="doc-h-num">2.</span>The Applications Hub</h2>
+    <p>After signing in, you land on the Applications hub — a chooser for the two application domains you can work in.</p>
+    <p>Two large cards represent the two domains:</p>
+    <ul>
+      <li><strong>Online Card Renewals</strong> — Search and manage online card renewal applications.</li>
+      <li><strong>Claims</strong> — Search and manage online claim applications.</li>
+    </ul>
+    <p>Click whichever card matches the work you need to do. The top nav has <strong>Dashboard</strong> and <strong>Applications</strong> tabs; you can also click your name in the top right to sign out.</p>
+    <p>Your hub may show the Cards card, the Claims card, both, or neither depending on which roles you have. For example, OHSU staff only see Claims (they handle Injury Benefit claims). Cards Registration staff only see Cards.</p>
+
+    <h2 id="finding"><span class="doc-h-num">3.</span>Finding an application</h2>
+
+    <h3 id="queue-claims">3.1 The Claim Applications queue</h3>
+    <p>If your role gives you access to Claims, click <strong>Claims</strong> from the hub. The queue shows applications matching your filter. The header shows the result count (e.g., "Results found: 71") and the table lists:</p>
+    <table>
+      <thead><tr><th>Column</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Application ID</strong></td><td>Internal unique number for the application</td></tr>
+        <tr><td><strong>NI Number</strong></td><td>The citizen's NIB number</td></tr>
+        <tr><td><strong>First Name / Last Name</strong></td><td>The citizen who submitted the application</td></tr>
+        <tr><td><strong>Application Type</strong></td><td>The benefit type (Sickness, Unemployment, Maternity, etc.)</td></tr>
+        <tr><td><strong>Status</strong></td><td>Where the application is in the workflow</td></tr>
+        <tr><td><strong>Local Office</strong></td><td>Which NIB office is handling it</td></tr>
+        <tr><td><strong>Inserted Date</strong></td><td>When the citizen submitted it</td></tr>
+      </tbody>
+    </table>
+    <p>Click any row to open that application's detail page.</p>
+
+    <h3 id="queue-cards">3.2 The Card Applications queue</h3>
+    <p>If your role gives you access to Cards, click <strong>Online Card Renewals</strong> from the hub. Same filter form, different result columns. Application Type values will be <strong>New</strong>, <strong>Renewal</strong>, or <strong>Replacement</strong>.</p>
+
+    <h3 id="filters">3.3 Using filters</h3>
+    <p>Both queues share the same filter form at the top:</p>
+    <table>
+      <thead><tr><th>Filter</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Application ID</strong></td><td>Find one specific application by its internal number</td></tr>
+        <tr><td><strong>NI Number</strong></td><td>Find all applications from one citizen</td></tr>
+        <tr><td><strong>First Name / Last Name</strong></td><td>Search by claimant name</td></tr>
+        <tr><td><strong>Application Type</strong></td><td>Limit to one benefit / card type</td></tr>
+        <tr><td><strong>Status</strong></td><td>Submitted, In Review, Pending, Approved, Denied, Reupload Requested</td></tr>
+        <tr><td><strong>Routed To</strong></td><td>Filter by which officer owns it (see <a href="#routing">§4.3</a> about routing)</td></tr>
+        <tr><td><strong>Local Office</strong></td><td>Filter to one office (your access may be limited to your own office)</td></tr>
+        <tr><td><strong>From / To Inserted Date</strong></td><td>Date range when the citizen submitted</td></tr>
+      </tbody>
+    </table>
+    <p>Click <strong>Search</strong> to apply your filters, or <strong>Clear</strong> to reset.</p>
+
+    <h3 id="role-view">3.4 What you see depends on your role</h3>
+    <p>By default:</p>
+    <ul>
+      <li><span class="role role--cs">NON SUPERVISOR CS</span> and <span class="role role--fiu">NON&nbsp; SUPERVISOR FIU</span>: see only applications routed to your local office</li>
+      <li><span class="role role--it">IT roles</span>: see all applications (read-only view)</li>
+      <li><span class="role role--ohsu">NON&nbsp; SUPERVISOR OHSU</span>: see Injury Benefit claims</li>
+    </ul>
+    <p>If you expect to see an application but don't, check the filters first. If filters are clear and you still don't see it, your role may not include that office's scope — ask your supervisor.</p>
+
+    <h2 id="reviewing"><span class="doc-h-num">4.</span>Reviewing an application</h2>
+    <p>Click any row in the queue to open the application detail page.</p>
+
+    <h3 id="claim-detail">4.1 Claim application detail</h3>
+    <p>The detail page is organized into sections:</p>
+    <ol>
+      <li><strong>Header</strong> — claim type and claim number (e.g., "Unemployment Claim #1") with a status badge (e.g., <span class="chip-inline chip-inline--pending">Pending</span>)</li>
+      <li><strong>Routed To</strong> — which officer currently owns this application (or empty if not yet routed)</li>
+      <li><strong>Claimant Details</strong> — the citizen's name, NI number, email</li>
+      <li><strong>Claim-specific Details</strong> — fields specific to this benefit type (for Unemployment: last working date, employer info, pension status, severance days, vacation days, etc.)</li>
+      <li><strong>Application Documents</strong> — uploaded files (passport, B80, etc.) with <strong>Download</strong>, <strong>Upload History</strong>, and additional document-action links (see <a href="#reupload-req">§4.5</a>)</li>
+      <li><strong>Contact Information</strong> — phone numbers and primary contact flag</li>
+      <li><strong>Application address Information</strong> — the citizen's mailing/physical address</li>
+      <li><strong>Activity Log</strong> — audit trail (scroll to the bottom)</li>
+    </ol>
+
+    <h3 id="card-detail">4.2 Card application detail</h3>
+    <p>A card detail page has a similar structure with cards-specific sections:</p>
+    <ul>
+      <li><strong>Person Information</strong> — full name, NI Number, Registrant Type (Bahamian / Non-Bahamian), gender, DOB, country of nationality, marital status</li>
+      <li><strong>Application Information</strong> — application type (New / Renewal / Replacement), reason for name change (if applicable), Ready for Pickup flag, Local Office</li>
+      <li><strong>Non-Bahamian Details</strong> — (only for non-Bahamian registrants) permanent-resident flag, resident card number + expiry, work permit number + expiry</li>
+      <li><strong>Application Documents</strong> — R4, Passport, Work Permit, etc.</li>
+      <li><strong>Contact Information</strong> and <strong>Address Information</strong></li>
+    </ul>
+
+    <h3 id="routing">4.3 Routing — claiming an application to work on</h3>
+    <p>Most actions in the portal require an officer to be the <strong>Routed To</strong> owner of the application. When you find a new application in the unrouted pool, claim it by clicking <strong>Route To Me</strong>.</p>
+    <p>After you click Route To Me:</p>
+    <ul>
+      <li>The <strong>Routed To</strong> field now shows your name</li>
+      <li>You're notified by the system if other officers try to act on the application</li>
+      <li>You can take any further actions allowed by your role</li>
+    </ul>
+    <p>If an application is already routed to someone else, you can still:</p>
+    <ul>
+      <li>Review its documents and details</li>
+      <li>Read the activity log</li>
+    </ul>
+    <p>But to take action, you need to either:</p>
+    <ul>
+      <li>Ask the current routed-to officer to hand it off (they can re-assign if their role allows — see Supervisor Manual)</li>
+      <li>Or escalate to a supervisor who can re-assign on your behalf</li>
+    </ul>
+
+    <h3 id="downloads">4.4 Downloading documents</h3>
+    <p>Each uploaded document in the <strong>Application Documents</strong> section has a <strong>Download</strong> link. Click it to retrieve the file (PDF, JPG, PNG) to your computer.</p>
+    <p>The download is served directly from the file storage shared between the citizen portal and the admin portal — the file you download is the same file the citizen uploaded. There's no copy / transfer delay.</p>
+    <div class="callout callout--danger">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">If a document fails with "400: File does not exist"</span>
+        Do <strong>NOT</strong> ask the citizen to re-upload. Take a screenshot of the error and notify NIB IT — there may be a database / file-path issue that needs engineering attention. Asking the citizen to re-upload often masks the underlying problem.
+      </div>
+    </div>
+
+    <h3 id="reupload-req">4.5 Requesting a document re-upload</h3>
+    <p>If a document is unreadable, blurry, incomplete, expired, or the wrong document type, you can ask the citizen to upload a replacement.</p>
+    <p>Click <strong>Request Reuploads</strong> in the Application Documents header. You'll be prompted to:</p>
+    <ol class="steps">
+      <li>Select which document(s) need a new upload</li>
+      <li>Choose a reason for each — typical reasons include: <strong>Unreadable / blurry</strong>, <strong>Wrong document type</strong>, <strong>Document is incomplete</strong>, <strong>Document is expired</strong>, <strong>Other</strong> (with free-text note)</li>
+      <li>Confirm the request</li>
+    </ol>
+    <p>After you confirm:</p>
+    <ul>
+      <li>The document's status changes to <code>REUPLOAD_REQUESTED</code></li>
+      <li>The citizen receives an automatic email letting them know</li>
+      <li>The citizen sees a banner / prompt on their portal home and "My Claims" / "Card Applications" list the next time they sign in</li>
+      <li>The application's overall status reflects that it's waiting on the citizen</li>
+    </ul>
+    <p>When the citizen uploads a replacement, the document status returns to <code>SUBMITTED</code>, and you'll see the new file when you next open the application. You can then continue your review.</p>
+
+    <h2 id="audit"><span class="doc-h-num">5.</span>The Activity Log</h2>
+    <p>Every significant action taken on an application is logged with a timestamp and the officer's identity. Scroll to the bottom of the application detail page to find the Activity Log.</p>
+    <p>The log records:</p>
+    <ul>
+      <li>Routing changes (who routed it, when, who claimed it)</li>
+      <li>Re-upload requests (which document, the reason, who requested)</li>
+      <li>Document downloads</li>
+      <li>Status changes (<span class="chip-inline chip-inline--info">Submitted</span> → <span class="chip-inline chip-inline--review">In Review</span> → etc.)</li>
+      <li>Approval / denial (when applicable)</li>
+      <li>Local-office changes</li>
+    </ul>
+    <p>You can filter the log by date range or activity type if it's long.</p>
+
+    <div class="callout callout--audit">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">This is a regulatory audit trail — not just a UI feature.</span>
+        It's stored permanently in Oracle and used for NIB compliance reporting. Do not attempt to bypass it; every action you take should be visible in the log so others can follow what happened.
+      </div>
+    </div>
+
+    <h2 id="tasks"><span class="doc-h-num">6.</span>Common tasks</h2>
+
+    <h4>Find a specific citizen's application</h4>
+    <p>Use <strong>NI Number</strong> in the queue filter. This is faster than scrolling. If you don't know the NI number, search by Last Name + First Name.</p>
+
+    <h4>Find work you're currently handling</h4>
+    <p>Filter by <strong>Routed To = your name</strong> (your username should appear in the dropdown). This shows your active workload.</p>
+
+    <h4>Check what's been recently submitted</h4>
+    <p>Set <strong>From Inserted Date</strong> = today (or yesterday). Leave the To date blank. Sort by Inserted Date if needed.</p>
+
+    <h4>Read the audit history before acting</h4>
+    <p>Always check the Activity Log at the bottom of the detail page before requesting a re-upload or asking for guidance. The log may show that another officer already requested a re-upload, or that the citizen has already responded to a prior request.</p>
+
+    <h2 id="issues"><span class="doc-h-num">7.</span>Common issues</h2>
+    <table>
+      <thead><tr><th style="width: 38%">Issue</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td>I can't sign in — LDAP rejected my password</td><td>Contact NIB IT to reset your LDAP password. The admin portal has no self-service reset.</td></tr>
+        <tr><td>I signed in but see a "no permission" toast</td><td>Your LDAP account doesn't have an admin role. Ask your supervisor to request the role from NIB IT.</td></tr>
+        <tr><td>I can see the application but can't approve / deny</td><td>Approve / deny is reserved for supervisor-tier roles. Either escalate to your supervisor, or check the <a href="supervisor-manual.html#matrix">Supervisor Manual</a> to confirm whether your role should have access.</td></tr>
+        <tr><td>An expected application isn't showing in the queue</td><td>Clear all filters and re-search. If still missing, the application may be assigned to a different local office (you only see your office by default). Ask your supervisor to widen the search or check Routed-To.</td></tr>
+        <tr><td>A document download returns "400: File does not exist"</td><td>Don't ask the citizen to re-upload. Screenshot and report to NIB IT.</td></tr>
+        <tr><td>The Routed-To search field doesn't return results</td><td>Known issue at time of writing (admin SPA <code>useRoutedToSearch</code>). Use NI Number or claimant name search instead.</td></tr>
+        <tr><td>Filter shortcuts on the queue aren't applying</td><td>Known issue at time of writing. Use the dropdown filters manually.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="help"><span class="doc-h-num">8.</span>Need help?</h2>
+    <ul>
+      <li><strong>LDAP / sign-in issues:</strong> Contact NIB IT helpdesk.</li>
+      <li><strong>Role assignment requests</strong> (e.g., "I should be able to approve but the button isn't showing"): submit through your department head, who can have NIB IT update the <code>dbo.security_role_user</code> table.</li>
+      <li><strong>A bug in the admin portal:</strong> Report to the engineering team. Include the application ID, your username, and a screenshot if possible.</li>
+      <li><strong>A specific application's data looks wrong</strong> (e.g., "Why isn't the banking doc showing?"): the engineering team can run database queries to investigate.</li>
+    </ul>
+
+    <hr>
+    <h3 id="docinfo">Document information</h3>
+    <dl class="defstrip">
+      <div><dt>Title</dt><dd>NIB Online Portal — Admin Manual</dd></div>
+      <div><dt>Audience</dt><dd>Customer Service Officers &amp; Non-Supervisor Admin Staff</dd></div>
+      <div><dt>Version</dt><dd>1.0</dd></div>
+      <div><dt>Issued</dt><dd>2026-05-20</dd></div>
+      <div><dt>Published by</dt><dd>National Insurance Board of The Bahamas</dd></div>
+    </dl>
+    <p style="font-size: 13px; color: var(--fg-3);">This manual covers the workflows available to non-supervisor admin staff. For approve / deny / reassignment / form generation / statistics, please refer to the <a href="supervisor-manual.html">Supervisor Manual</a>.</p>
+
+  </main>
+</div>
+
+<footer class="doc-footer">
+  <div class="doc-footer__inner">
+    <em>Reflecting on the past, building the present, securing the future!</em>
+    <p style="margin: 12px 0 0;">Copyright © 2026 The National Insurance Board of The Commonwealth of The Bahamas. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="pdf-export.js"></script>
+</body>
+</html>

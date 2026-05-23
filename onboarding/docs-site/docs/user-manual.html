@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Manual — NIB Online Portal</title>
+<link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<header class="doc-topbar">
+  <div class="doc-topbar__inner">
+    <a class="doc-topbar__logo" href="index.html">
+      <img src="../assets/nib-logo-no-text.png" alt="NIB">
+      <div>
+        <div class="doc-topbar__title">NIB Online Portal</div>
+        <div class="doc-topbar__sub">Documentation</div>
+      </div>
+    </a>
+    <span class="doc-topbar__audience">User Manual</span>
+    <div class="doc-topbar__spacer"></div>
+    <nav class="doc-topbar__nav">
+      <a href="index.html">Home</a>
+      <a href="user-manual.html" class="is-current">User</a>
+      <a href="admin-manual.html">Admin</a>
+      <a href="supervisor-manual.html">Supervisor</a>
+      <a href="storage-brief.html">Storage</a>
+    <a class="doc-topbar__pdf" href="#" onclick="event.preventDefault(); window.exportPDF('NIB-User-Manual-v1.0.pdf');" title="Generate and download a real PDF (no print dialog)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>PDF</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-layout">
+
+  <aside class="doc-sidebar">
+    <p class="doc-sidebar__title">On this page</p>
+    <ul class="doc-sidebar__list">
+      <li><a href="#about">About this manual</a></li>
+      <li><a href="#quickmap">Quick map</a></li>
+      <li><a href="#signin">1. Signing in</a></li>
+      <li><a href="#register" class="lvl-2">1.1 Creating an account</a></li>
+      <li><a href="#forgot" class="lvl-2">1.2 Forgot password</a></li>
+      <li><a href="#activation" class="lvl-2">1.3 Account activation</a></li>
+      <li><a href="#home">2. Your portal home</a></li>
+      <li><a href="#claims">3. Applying for a benefit</a></li>
+      <li><a href="#cards">4. Applying for a NIB card</a></li>
+      <li><a href="#account">5. Managing your account</a></li>
+      <li><a href="#general" class="lvl-2">5.1 General settings</a></li>
+      <li><a href="#info"    class="lvl-2">5.2 Account information</a></li>
+      <li><a href="#banking" class="lvl-2">5.3 Banking details</a></li>
+      <li><a href="#status">6. Checking application status</a></li>
+      <li><a href="#reupload">7. Responding to a reupload request</a></li>
+      <li><a href="#faq">8. Common questions</a></li>
+      <li><a href="#help">9. Need help?</a></li>
+    </ul>
+  </aside>
+
+  <main class="doc-main">
+
+    <div class="doc-hero">
+      <div class="doc-hero__eyebrow">For Bahamian Citizens</div>
+      <h1 class="doc-hero__title">User Manual</h1>
+      <p class="doc-hero__sub">How to sign in, apply for benefits, apply for an NIB card, and manage your account on the NIB Online Portal.</p>
+      <div class="doc-hero__meta">
+        <span><strong>Portal:</strong> nibonline.nib-bahamas.com</span>
+        <span><strong>Version:</strong> 1.0</span>
+        <span><strong>Issued:</strong> 2026-05-20</span>
+      </div>
+    </div>
+
+    <h2 id="about"><span class="doc-h-num">§</span>About this manual</h2>
+    <p>This manual walks you through every screen and action in the NIB Online Portal — the website Bahamian citizens use to apply for benefits and NIB cards online.</p>
+    <p><strong>Who should read this:</strong> Any Bahamian citizen who wants to use the online portal instead of visiting an NIB office in person.</p>
+    <p><strong>What you'll learn:</strong></p>
+    <ul>
+      <li>How to create an account and sign in</li>
+      <li>How to apply for each of the six benefit types (claims)</li>
+      <li>How to apply for a new, renewed, or replacement NIB card</li>
+      <li>How to upload supporting documents</li>
+      <li>How to respond when NIB asks you to re-upload a document</li>
+      <li>How to update your personal information and banking details</li>
+      <li>How to check the status of every application you've submitted</li>
+    </ul>
+    <div class="callout callout--info">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">Need extra help?</span>
+        If you have questions this manual doesn't cover, visit your nearest NIB Local Office or contact NIB Customer Service.
+      </div>
+    </div>
+
+    <h2 id="quickmap"><span class="doc-h-num">§</span>Quick map — what you can do here</h2>
+    <table>
+      <thead><tr><th>Goal</th><th>Where to go</th></tr></thead>
+      <tbody>
+        <tr><td>Sign in</td><td><a href="#signin">Login page</a></td></tr>
+        <tr><td>Create a new NIB Online account</td><td><a href="#register">Register page</a></td></tr>
+        <tr><td>Forgot your password?</td><td><a href="#forgot">Reset password</a></td></tr>
+        <tr><td>Activate your account from an email link</td><td><a href="#activation">Account activation</a></td></tr>
+        <tr><td>Apply for a benefit (claims)</td><td><a href="#claims">Submit a claim</a></td></tr>
+        <tr><td>Apply for / renew a NIB card</td><td><a href="#cards">Card application</a></td></tr>
+        <tr><td>Update your personal information</td><td><a href="#info">Account Information</a></td></tr>
+        <tr><td>Add or update banking details</td><td><a href="#banking">Banking Details</a></td></tr>
+        <tr><td>Check the status of your applications</td><td><a href="#status">My Claims / Card Applications</a></td></tr>
+        <tr><td>Respond to a request to re-upload a document</td><td><a href="#reupload">Document reupload</a></td></tr>
+        <tr><td>Change your password or notification preferences</td><td><a href="#general">General Settings</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="signin"><span class="doc-h-num">1.</span>Signing in</h2>
+    <p>When you visit <code>nibonline.nib-bahamas.com</code>, you land on the sign-in page if you're not already logged in.</p>
+    <p><strong>What you need:</strong></p>
+    <ul>
+      <li>Your <strong>NIB Number</strong> (this is your unique citizen identifier)</li>
+      <li>Your <strong>password</strong></li>
+    </ul>
+    <p>If you don't yet have an online account, click <strong>Register here</strong> at the bottom of the sign-in card. If you've forgotten your password, click <strong>Forgot your password?</strong> above the sign-in button. If you registered but never received an activation email (or the link expired), click <strong>Resend activation email</strong> beside the forgot-password link.</p>
+    <p>After signing in successfully, you land on your portal home.</p>
+
+    <h3 id="register">1.1 Creating a new account</h3>
+    <p>Registration captures just your identity and credentials:</p>
+    <ul>
+      <li>First Name and Last Name</li>
+      <li>Email Address (with confirmation)</li>
+      <li>Password (with confirmation)</li>
+      <li>NIB Number</li>
+    </ul>
+    <p>That's it for registration — you'll add contact info, addresses, and banking details later from your account section. After submitting, NIB sends you an activation email. Click the link to confirm your account before you can sign in.</p>
+
+    <h3 id="forgot">1.2 Forgot password</h3>
+    <p>Enter your NIB number and the email associated with your account. You'll receive a password-reset email with a one-time link.</p>
+
+    <h3 id="activation">1.3 Account activation</h3>
+    <p>The account activation page is what you reach after clicking the link in the activation email NIB sent you when you registered. Without a valid activation token in the URL, this page will show an error — it's not meant to be visited directly.</p>
+
+    <h2 id="home"><span class="doc-h-num">2.</span>Your portal home</h2>
+    <p>After signing in, you land here. This is the center of everything — two large cards represent the two services you can use:</p>
+    <ul>
+      <li><strong>Apply Online to Renew your Card</strong> — takes you to the NIB Card renewal flow</li>
+      <li><strong>Apply Online for Your Benefits</strong> — takes you to the Claims portal</li>
+    </ul>
+    <p>In the top-right, your name is displayed (for example: "John Doe"). Clicking it opens a menu with your account options and a sign-out link. The top nav has a <strong>Cards</strong> tab and a <strong>Claims</strong> tab — these jump directly to those sections.</p>
+
+    <h2 id="claims"><span class="doc-h-num">3.</span>Applying for a benefit (claims)</h2>
+    <p>Click <strong>Go To Claims</strong> from the portal home (or <strong>Claims</strong> in the top nav) to reach the benefits picker. You'll see six benefit cards. Click <strong>Apply</strong> on the one you need:</p>
+    <table>
+      <thead><tr><th>Benefit</th><th>When to apply</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Retirement</strong></td><td>You've reached retirement age and need to claim your pension</td></tr>
+        <tr><td><strong>Maternity</strong></td><td>You're a working mother and entitled to paid maternity leave</td></tr>
+        <tr><td><strong>Sickness</strong></td><td>You're temporarily unable to work due to illness</td></tr>
+        <tr><td><strong>Industrial (Injury Benefit)</strong></td><td>You suffered a workplace injury and need OHSU-related benefits</td></tr>
+        <tr><td><strong>Unemployment</strong></td><td>You lost your job and need temporary income support</td></tr>
+        <tr><td><strong>Funeral</strong></td><td>A family member has passed and you're claiming the funeral benefit</td></tr>
+      </tbody>
+    </table>
+
+    <p>Each claim flow walks you through several steps:</p>
+    <ol class="steps">
+      <li><strong>Your information</strong> — confirms your demographics on file (name, date of birth, address). Update if anything is out of date.</li>
+      <li><strong>Banking details</strong> — choose the bank account you want the benefit paid into. If you haven't added one yet, you'll be prompted to add one here.</li>
+      <li><strong>Claim-specific questions</strong> — details about the claim (last day of work, employer NIB number, dates of incapacity, etc. — varies by benefit type).</li>
+      <li><strong>Document upload</strong> — upload supporting documents (medical certificate B81, employer's certificate B80, passport, etc. — varies by benefit type).</li>
+      <li><strong>Review and submit</strong> — final summary; click <strong>Submit</strong> to send your claim to NIB.</li>
+    </ol>
+    <p>After submission, you'll receive a confirmation email. Your claim moves into the <span class="chip-inline chip-inline--info">Submitted</span> state, where an NIB Claims Officer can review it.</p>
+
+    <h3 id="view-claims">View your submitted claims</h3>
+    <p>Click <strong>View Benefit History</strong> or <strong>View Applications</strong> from the Claims home to see every claim you've submitted, its current status, and any actions required.</p>
+
+    <h2 id="cards"><span class="doc-h-num">4.</span>Applying for an NIB card</h2>
+    <p>Click <strong>Apply Now</strong> under <strong>NIB Card EzRENEW</strong> from the portal home, or click <strong>Cards</strong> in the top nav. Card applications come in three flavors:</p>
+    <ul>
+      <li><strong>New Card</strong> — you've never held an NIB card and need your first one</li>
+      <li><strong>Renewal</strong> — your existing card is at or near expiration</li>
+      <li><strong>Replacement</strong> — your card was lost, damaged, or stolen</li>
+    </ul>
+    <p>Each flow follows a similar pattern:</p>
+    <ol class="steps">
+      <li><strong>Your information</strong> — same demographics confirmation as the claims flow</li>
+      <li><strong>Photo upload</strong> — a recent passport-style photo (required)</li>
+      <li><strong>Supporting documents</strong> — varies by application type (passport bio page, marriage certificate for name changes, police report for lost cards, etc.)</li>
+      <li><strong>Review and submit</strong></li>
+    </ol>
+    <div class="callout callout--tip">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.355a7.5 7.5 0 1 0-7.5-7.5c0 1.355.18 2.668.515 3.917L3 21l4.583-.916a7.5 7.5 0 0 0 4.917.916z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">You can save for later at any point.</span>
+        The portal keeps your in-progress application for <strong>3 months</strong> from the submission date before it's automatically removed. To resume, return to the Cards (or Claims) section and click the <strong>Resume</strong> button next to your saved application.
+      </div>
+    </div>
+    <h3 id="view-cards">View your submitted card applications</h3>
+    <p>Same idea as the claims list — every card application you've submitted, with status.</p>
+
+    <h2 id="account"><span class="doc-h-num">5.</span>Managing your account</h2>
+    <p>Click your name in the top-right and choose <strong>My Account</strong>, or visit <code>/my-account</code> directly. The My Account section has three sub-pages, shown as a sidebar on the left:</p>
+    <ul>
+      <li><strong>General Settings</strong> — password and email</li>
+      <li><strong>Account Information</strong> — your personal details (addresses, contacts)</li>
+      <li><strong>Banking Details</strong> — bank accounts for receiving benefit payments</li>
+    </ul>
+    <p>When you first click My Account, you land on General Settings.</p>
+
+    <h3 id="general">5.1 General Settings</h3>
+    <p>The default page. From here you can:</p>
+    <ul>
+      <li><strong>Update Password</strong> — click the <strong>Update</strong> link beside Password. You'll be prompted for your current password and a new one.</li>
+      <li><strong>Update Email</strong> — click <strong>Update</strong> beside Email. The page also shows which email address is currently being used for account notifications and password resets.</li>
+    </ul>
+
+    <h3 id="info">5.2 Account Information</h3>
+    <p>Your personal information: addresses, phone numbers, contact details. Update this section if you move, change phone numbers, or update contact information. Changes are saved immediately and you'll receive an email confirmation.</p>
+    <p style="font-size: 14px; color: var(--fg-3); font-style: italic;">(Internally this section is also referred to as "Claimant Information" — same page.)</p>
+
+    <h3 id="banking">5.3 Banking Details</h3>
+    <p>Your bank accounts on file for receiving benefit payments. The page shows a table with <strong>Account No.</strong>, <strong>Branch</strong>, and <strong>Primary</strong> columns plus a delete (×) action per row, and an <strong>Add Bank Account</strong> button below.</p>
+    <ul>
+      <li><strong>Add Bank Account</strong> — opens a form for name of bank, branch, account type, account number. You'll be asked to upload a supporting document (void cheque, bank statement, or bank confirmation letter).</li>
+      <li><strong>Delete (×)</strong> — removes a bank account you no longer want on file.</li>
+      <li><strong>Primary</strong> column shows which account receives benefit payments by default; the primary flag is set during the add flow or by editing a specific row.</li>
+    </ul>
+    <p>The supporting document is verified by NIB during application review. You may be asked to re-upload if the document is unreadable or doesn't match the account details.</p>
+
+    <h2 id="status"><span class="doc-h-num">6.</span>Checking application status</h2>
+    <p>You have two places to check application status:</p>
+    <ul>
+      <li><strong>For benefit claims:</strong> Click <strong>Claims</strong> in the top nav → <strong>View Benefit History</strong></li>
+      <li><strong>For card applications:</strong> Click <strong>Cards</strong> in the top nav → <strong>View Applications</strong></li>
+    </ul>
+    <p>Status values you may see (status names can vary slightly depending on application type):</p>
+    <table>
+      <thead><tr><th>Status</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip-inline chip-inline--pending">Pending</span></td><td>Application has been submitted and is awaiting NIB review (or — for saved applications shown in the Saved Applications section — still a draft you haven't submitted yet).</td></tr>
+        <tr><td><span class="chip-inline chip-inline--info">Submitted</span></td><td>NIB has received your application. An officer will review it.</td></tr>
+        <tr><td><span class="chip-inline chip-inline--review">In Review</span></td><td>An NIB officer is currently working on your application.</td></tr>
+        <tr><td><span class="chip-inline chip-inline--reupload">Reupload Requested</span></td><td>NIB needs you to upload a clearer or different version of one of your documents. <strong>Action required from you</strong> — see <a href="#reupload">section 7</a>.</td></tr>
+        <tr><td><span class="chip-inline chip-inline--approved">Approved</span></td><td>Your application has been approved. For benefits, payment will follow per the benefit's pay schedule.</td></tr>
+        <tr><td><span class="chip-inline chip-inline--denied">Denied</span></td><td>Your application has been denied. The denial reason will be shown; you can contact NIB if you have questions.</td></tr>
+        <tr><td><span class="chip-inline chip-inline--info">Ready for Pickup</span><br><small style="color:var(--fg-3)">(cards only)</small></td><td>Your new/renewed NIB card has been printed and is ready for collection at your local office.</td></tr>
+      </tbody>
+    </table>
+    <p>The <strong>My Claims</strong> screen also has a separate <strong>Saved Applications</strong> section at the bottom listing any in-progress drafts. Each saved application has <strong>Resume</strong> and <strong>Delete</strong> buttons.</p>
+
+    <h2 id="reupload"><span class="doc-h-num">7.</span>Responding to a reupload request</h2>
+    <p>If an NIB officer reviews your application and finds a document that's unreadable, incomplete, or missing, they'll request a reupload. You'll receive an email letting you know.</p>
+    <p><strong>How to respond:</strong></p>
+    <ol class="steps">
+      <li>Sign in to the portal.</li>
+      <li>Go to <strong>My Claims</strong> (for benefits) or <strong>Card Applications</strong> (for cards).</li>
+      <li>Find the application marked <span class="chip-inline chip-inline--reupload">Reupload Requested</span>.</li>
+      <li>Click into it. You'll see which specific document(s) need a new upload, and the reason the officer gave.</li>
+      <li>Click the <strong>Upload</strong> or <strong>Replace</strong> action next to that document.</li>
+      <li>Choose a new file from your device.</li>
+      <li>Confirm.</li>
+    </ol>
+    <p>The officer is notified automatically. Your application returns to <span class="chip-inline chip-inline--review">In Review</span>. No further action is needed unless they request another reupload.</p>
+    <div class="callout callout--tip">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.355a7.5 7.5 0 1 0-7.5-7.5c0 1.355.18 2.668.515 3.917L3 21l4.583-.916a7.5 7.5 0 0 0 4.917.916z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">Tip</span>
+        The portal shows a banner / prompt on your applications list page so you don't miss the request. If you don't see it, check your email for the notification.
+      </div>
+    </div>
+
+    <h2 id="faq"><span class="doc-h-num">8.</span>Common questions</h2>
+
+    <h4>My NIB number isn't being accepted at sign-in.</h4>
+    <p>NIB numbers are typically 7–8 characters. Try entering yours in lowercase if upper case isn't working — the system normalizes case. If you still can't sign in, use <strong>Forgot your password?</strong> to verify the number-to-account mapping or call NIB Customer Service.</p>
+
+    <h4>I registered but never got an activation email.</h4>
+    <p>Check spam/junk first. Then go to the sign-in page and click <strong>Resend activation email</strong>. The portal will look up your NIB number and email you a fresh activation link.</p>
+
+    <h4>I uploaded a document but it shows the wrong filename or isn't visible.</h4>
+    <p>First refresh the page. If it's still missing, contact NIB Customer Service — there may be a banking-doc routing issue (a known historical bug; see internal incident notes if you're staff).</p>
+
+    <h4>How do I know which documents are required for my claim?</h4>
+    <p>Each claim type has a documents step that lists required documents before you can submit. If you're missing any, you can't proceed to submit. Save for later, gather your docs, then come back.</p>
+
+    <h4>Can I edit a claim after submitting?</h4>
+    <p>Once submitted, you can't edit. You can only respond to reupload requests from an officer. If you submitted incorrect information, contact NIB Customer Service.</p>
+
+    <h4>My card application is taking a long time to approve. What's normal?</h4>
+    <p>Card applications typically process within several business days. Status changes will trigger email notifications. If you've waited longer than two weeks without a status change, contact your local NIB office.</p>
+
+    <h2 id="help"><span class="doc-h-num">9.</span>Need help?</h2>
+    <p>Visit your nearest <strong>NIB Local Office</strong> for in-person help. Use the locations page on the public NIB website (<code>nib-bahamas.com</code>) for hours and addresses.</p>
+    <p>For password / sign-in issues that the self-service flows can't fix, <strong>NIB Customer Service</strong> can verify your identity and help recover access.</p>
+
+    <hr>
+    <h3 id="docinfo">Document information</h3>
+    <dl class="defstrip">
+      <div><dt>Title</dt><dd>NIB Online Portal — User Manual</dd></div>
+      <div><dt>Audience</dt><dd>Bahamian Citizens</dd></div>
+      <div><dt>Version</dt><dd>1.0</dd></div>
+      <div><dt>Issued</dt><dd>2026-05-20</dd></div>
+      <div><dt>Published by</dt><dd>National Insurance Board of The Bahamas</dd></div>
+    </dl>
+    <p style="font-size: 13px; color: var(--fg-3);">Screenshots reflect the portal as of the issue date. Future updates to the portal may change minor visual details but the workflow described in this manual will remain the same. If you notice a significant difference between this manual and what you see on screen, please notify NIB Customer Service.</p>
+
+  </main>
+</div>
+
+<footer class="doc-footer">
+  <div class="doc-footer__inner">
+    <em>Reflecting on the past, building the present, securing the future!</em>
+    <p style="margin: 12px 0 0;">Copyright © 2026 The National Insurance Board of The Commonwealth of The Bahamas.</p>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="pdf-export.js"></script>
+</body>
+</html>

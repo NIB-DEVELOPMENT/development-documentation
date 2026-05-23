@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" width="380" height="80">
+  <text x="0" y="26" font-family="&#39;Arial Black&#39;, &#39;Helvetica Neue&#39;, Arial, sans-serif" font-weight="900" font-size="22" fill="#1e2a5e" letter-spacing="1">NIB Claims</text>
+  <text y="68" font-family="&#39;Arial Black&#39;, &#39;Helvetica Neue&#39;, Arial, sans-serif" font-weight="900" font-size="30" letter-spacing="1.5">
+    <tspan x="0" fill="#e27e2c">Online</tspan>
+    <tspan fill="#1e2a5e" dx="4">CLAIM SUBMISSION</tspan>
+  </text>
+</svg>

@@ -1,6 +1,10 @@
 # Firecrawl working dirs — scrape artifacts, not deliverable
 .firecrawl/
 
+# Design system handoff (extracted bundles, kept locally, not deliverable)
+.design-system-handoff/
+*-handoff.zip
+
 # Editor / OS
 .DS_Store
 Thumbs.db
