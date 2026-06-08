@@ -33,7 +33,7 @@
 
 These are not stylistic; they leak credentials, infrastructure, and personal data:
 
-1. **`04-DEPLOYMENT.md` — live Grafana credential in plaintext** (`admin / NibLogs2026!`, appears twice). Redact + rotate.
+1. **`04-DEPLOYMENT.md` — live Grafana credential in plaintext** (admin password, appears twice in §9.1 and §14). Redact + **rotate**.
 2. **Production infrastructure exposure** (04, 03, 02, 01): private IPs (`192.168.100.139`, `172.16.1.139`, `.117`, `.123`, NetScaler VIPs), hostnames, SSH jumphost topology, Sentry org IDs, Oracle schema/SID names.
 3. **Named personal/credential leaks**: `03-SERVICES` references a personal Oracle credential ("lionels@"); `06-ADMIN-GUIDE` names the "LDAP user lionels" test account and a colleague "Adena Minus" with internal policy attribution; `SUPERVISOR-MANUAL` repeats "Adena Minus, 2026".
 4. **Security-posture disclosure**: `03-SERVICES` references hardcoded-secret notes, `verify=False` rationale, and points to `SECURITY_FIXES_REQUIRED.md` (19 open security items).
