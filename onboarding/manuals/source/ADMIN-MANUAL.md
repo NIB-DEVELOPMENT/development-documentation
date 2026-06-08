@@ -38,7 +38,7 @@ This manual covers how NIB staff use the **Admin Portal** to review and process 
 - Denying applications (with denial reasons)
 - Re-assigning applications to other officers
 - Changing the local office handling an application
-- Generating official PDF forms (B80, B81, etc.)
+- Generating official PDF forms (the MED 1 / MED 2 medical forms, the unemployment and retirement forms, etc.)
 - Office-wide / department-wide statistics
 
 If you have questions this manual doesn't cover, ask your supervisor or contact NIB IT.
@@ -56,7 +56,7 @@ Open [nibonline-admin.nib-bahamas.com](https://nibonline-admin.nib-bahamas.com) 
 - Your **LDAP username** (the same one you use for other NIB internal systems)
 - Your **LDAP password**
 
-The admin portal authenticates against the corporate LDAP directory. After your password is verified, the system looks up your **roles** from the Oracle `dbo.security_role_user` table to determine what you're allowed to do.
+The admin portal authenticates against the corporate LDAP directory. After your password is verified, the system looks up your assigned **admin roles** to determine what you're allowed to do.
 
 If your LDAP password works but you receive a "no permission" toast on the page, that means your account doesn't yet have an admin role assigned. Ask your department head to request the appropriate role from NIB IT.
 
@@ -109,7 +109,7 @@ If your role gives you access to Cards, click **Online Card Renewals** from the 
 
 ![Card applications queue](images/admin/05-cards-queue.png)
 
-Same filter form, different result columns. Application Type values will be **New**, **Renewal**, or **Replacement**.
+Same filter form, different result columns. Application Type values will be **Renewal** or **Replacement**.
 
 ### 3.3 Using filters
 
@@ -121,7 +121,7 @@ Both queues share the same filter form at the top:
 | **NI Number** | Find all applications from one citizen |
 | **First Name / Last Name** | Search by claimant name |
 | **Application Type** | Limit to one benefit / card type |
-| **Status** | Submitted, In Review, Pending, Approved, Denied, Reupload Requested |
+| **Status** | Pending, Approved, or Denied (these are the only three filter options) |
 | **Routed To** | Filter by which officer owns it (see §4.3 about routing) |
 | **Local Office** | Filter to one office (your access may be limited to your own office) |
 | **From / To Inserted Date** | Date range when the citizen submitted |
@@ -153,11 +153,12 @@ The detail page is organized into sections:
 1. **Header** — claim type and claim number (e.g., "Unemployment Claim #1") with a status badge (e.g., "Pending")
 2. **Routed To** — which officer currently owns this application (or empty if not yet routed)
 3. **Claimant Details** — the citizen's name, NI number, email
-4. **Claim-specific Details** — fields specific to this benefit type (for Unemployment: last working date, employer info, pension status, severance days, vacation days, etc.)
-5. **Application Documents** — uploaded files (passport, B80, etc.) with **Download**, **Upload History**, and additional document-action links (see §4.5)
-6. **Contact Information** — phone numbers and primary contact flag
-7. **Application address Information** — the citizen's mailing/physical address
-8. **Activity Log** — audit trail (scroll to the bottom)
+4. **Payment** — how the benefit is to be paid, shown read-only: the **Payment Method** (Bank Account, Funeral Home, or Local Office) and its supporting details. When the method is a local office, the field is labelled **Payment Collection Office** — the office where the citizen collects payment. This is *not* the same as the processing office shown in the address section; don't confuse the two.
+5. **Claim-specific Details** — fields specific to this benefit type (for Unemployment: last working date, employer info, pension status, severance days, vacation days, etc.)
+6. **Application Documents** — uploaded files (passport, B80, etc.) with **Download**, **Upload History**, and additional document-action links (see §4.5)
+7. **Contact Information** — phone numbers and primary contact flag
+8. **Application address Information** — the citizen's mailing/physical address
+9. **Activity Log** — audit trail (scroll to the bottom)
 
 ### 4.2 Card application detail
 
@@ -166,7 +167,7 @@ The detail page is organized into sections:
 A card detail page has a similar structure with cards-specific sections:
 
 - **Person Information** — full name, NI Number, **Registrant Type** (Bahamian / Non-Bahamian), gender, DOB, country of nationality, marital status
-- **Application Information** — application type (New / Renewal / Replacement), reason for name change (if applicable), Ready for Pickup flag, Local Office
+- **Application Information** — application type (Renewal / Replacement), reason for name change (if applicable), Ready for Pickup flag, Local Office
 - **Non-Bahamian Details** — *(only for non-Bahamian registrants)* permanent-resident flag, resident card number + expiry, work permit number + expiry
 - **Application Documents** — R4, Passport, Work Permit, etc.
 - **Contact Information** and **Address Information**
@@ -206,22 +207,24 @@ If a document is unreadable, blurry, incomplete, expired, or the wrong document 
 Click **Request Reuploads** in the Application Documents header. You'll be prompted to:
 
 1. **Select which document(s)** need a new upload
-2. **Choose a reason** for each — typical reasons include:
-    - Unreadable / blurry
-    - Wrong document type
-    - Document is incomplete
-    - Document is expired
-    - Other (with free-text note)
+2. **Choose a reason** from the fixed list (one reason per request):
+    - Image quality is poor
+    - Bank Client Card / Bank Letter Needed (Paper Card with Bank Account Info and Transient Number)
+    - Claim is not signed
+    - Claim is not stamped by Doctor
+    - Revised dates needed
 3. **Confirm** the request
+
+> A reason is **required** and must be chosen from the list above — there is no free-text "Other" option.
 
 After you confirm:
 
-- The document's status changes to **REUPLOAD_REQUESTED**
+- The document is marked as **awaiting re-upload**
 - The citizen receives an automatic email letting them know
 - The citizen sees a banner / prompt on their portal home and "My Claims" / "Card Applications" list the next time they sign in
 - The application's overall status reflects that it's waiting on the citizen
 
-When the citizen uploads a replacement, the document status returns to **SUBMITTED**, and you'll see the new file when you next open the application. You can then continue your review.
+When the citizen uploads a replacement, the document returns to its normal submitted state, and you'll see the new file when you next open the application. You can then continue your review.
 
 ---
 
@@ -252,7 +255,7 @@ Use **NI Number** in the queue filter. This is faster than scrolling. If you don
 
 ### Find work you're currently handling
 
-Filter by **Routed To** = your name (your username should appear in the dropdown). This shows your active workload.
+Click the **Routed To** filter field to open the officer picker, then select your name. This shows your active workload.
 
 ### Check what's been recently submitted
 
@@ -273,7 +276,7 @@ Always check the **Activity Log** at the bottom of the detail page before reques
 | **I can see the application but can't approve / deny** | Approve / deny is reserved for supervisor-tier roles. Either escalate to your supervisor, or check the Supervisor Manual to confirm whether your role should have access. |
 | **An expected application isn't showing in the queue** | Clear all filters and re-search. If still missing, the application may be assigned to a different local office (you only see your office by default). Ask your supervisor to widen the search or check Routed-To. |
 | **A document download returns "400: File does not exist"** | Don't ask the citizen to re-upload. Screenshot and report to NIB IT. |
-| **The Routed-To search field doesn't return results** | Known issue at time of writing (admin SPA `useRoutedToSearch`). Use **NI Number** or claimant name search instead. |
+| **I can't find an officer in the Routed-To filter** | The Routed-To filter opens an officer-picker modal — click the field to open it and choose from the list. If you still can't narrow it down, use **NI Number** or claimant-name search instead. |
 | **Filter shortcuts on the queue aren't applying** | Known issue at time of writing. Use the dropdown filters manually. |
 
 ---
@@ -281,7 +284,7 @@ Always check the **Activity Log** at the bottom of the detail page before reques
 ## 8. Need Help?
 
 - **LDAP / sign-in issues:** Contact NIB IT helpdesk.
-- **Role assignment requests** (e.g., "I should be able to approve but the button isn't showing"): submit through your department head, who can have NIB IT update the `dbo.security_role_user` table.
+- **Role assignment requests** (e.g., "I should be able to approve but the button isn't showing"): submit through your department head, who can have NIB IT update your admin role assignment.
 - **A bug in the admin portal:** Report to the engineering team. Include the application ID, your username, and a screenshot if possible.
 - **A specific application's data looks wrong** (e.g., "Why isn't the banking doc showing?"): the engineering team can run database queries to investigate.
 

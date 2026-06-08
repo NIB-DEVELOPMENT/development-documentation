@@ -29,7 +29,7 @@ This manual covers the supervisor-tier actions on the **Admin Portal** — the w
 - How to **deny** an application with the correct reason
 - How to **reassign** an application from one officer to another
 - How to change the **local office** handling an application
-- How to **generate official forms** (B80, B81, etc.) as PDFs
+- How to **generate official forms** (the MED 1 / MED 2 medical forms and the other benefit forms) as PDFs
 - The complete **role reference** showing which roles can do what
 - How the office-scoping model affects what each role sees
 
@@ -66,10 +66,10 @@ To approve:
 
 1. Open the application detail page from the queue
 2. Confirm the **Routed To** field shows your name
-3. Review all the claimant's details, documents, and contact information one more time
+3. Review all the claimant's details — including the **Payment** section (how and where the benefit will be paid) — plus the documents and contact information one more time
 4. Click the **Approve** button (top right of the detail page)
-5. A confirmation dialog appears asking you to verify the action
-6. Click **Confirm Approval**
+5. A browser confirmation prompt appears ("Are you sure you want to approve this application?")
+6. Click **OK** to confirm
 
 What happens next:
 
@@ -98,9 +98,10 @@ To deny:
 1. Open the application detail page
 2. Confirm Routed To = your name
 3. Click **Deny** (next to the Approve button)
-4. A dialog appears with a **denial reason** dropdown — choose the appropriate reason
-5. Optionally add free-text notes
-6. Click **Confirm Denial**
+4. A menu of **denial reasons** (loaded from the system) appears — click the appropriate reason
+5. A browser confirmation prompt then appears — click **OK** to confirm
+
+> The claims deny flow has no separate free-text notes field; the reason you pick from the menu is what's recorded in the audit log and emailed to the citizen.
 
 What happens next:
 
@@ -111,7 +112,7 @@ What happens next:
 
 ### Denial reasons
 
-Common reasons (the exact list may vary by application type):
+The actual reasons are loaded from the system and vary by application type; you pick one from the menu. Typical examples:
 
 | Reason | When to use |
 |---|---|
@@ -120,14 +121,8 @@ Common reasons (the exact list may vary by application type):
 | Missing or invalid documents | Required documents are still missing or fundamentally wrong (after re-upload attempts) |
 | Duplicate application | This citizen has already submitted (and possibly received) the same benefit |
 | Not currently employed | (Unemployment) Claimant doesn't appear to have ceased employment |
-| Self-employed | (Some benefits) — *as of 2026-Q2, self-employed claimants are soft-denied with instructions to visit their local office for in-person processing. See §3.1.* |
-| Other (with notes) | Specific to the case; explain in the notes field |
-
-### 3.1 Self-employed soft-denial (planned policy)
-
-> **Coming soon (target: mid-2026):** Self-employed claimants will be flagged automatically and shown a special soft-denial message asking them to visit their local NIB office for in-person processing. Until the automation is in place, deny manually with the "Self-employed" reason and add a note pointing them to their local office.
-
-This is being implemented as part of OHSU-led policy alignment. Watch for an internal announcement.
+| Self-employed | (Some benefits) — self-employed claimants may require in-person processing at their local office; confirm current policy with NIB Customer Service before denying on this basis |
+| Other | A reason specific to the case |
 
 ---
 
@@ -153,8 +148,10 @@ What happens:
 If you want to "un-claim" an application (return it to the unrouted pool):
 
 1. Open the application detail page
-2. Click **Remove Assignment** (icon next to the Routed To field)
+2. Click **Remove Assignment** (the icon next to the Routed To field)
 3. Confirm
+
+> The **Remove Assignment** control only appears for **manager-tier (canEdit) roles** and only while the application's status is **Pending**. A non-manager officer who routed an application to themselves will not see it — a department head / manager has to remove the assignment for them.
 
 The application now has no Routed To and any officer in the appropriate scope can claim it via Route To Me.
 
@@ -176,7 +173,7 @@ In practice, that means you can change the local office on a freshly-submitted a
 
 If you find an application that needs to move offices *after* someone has routed it, the workflow is:
 
-1. Ask the current routed-to officer to **Remove Assignment** (un-route it) — or, if you have reassignment rights, do it yourself
+1. A manager-tier (canEdit) user clicks **Remove Assignment** to un-route it (the control isn't available to non-manager officers, so a department head / manager does this)
 2. Once the application is back in the unrouted pool with status Pending, the Local Office dropdown will enable
 3. Choose the correct office and confirm
 4. The application moves to the new office's queue
@@ -198,20 +195,24 @@ Both **claims** and **card** applications have a **Generate Pdf** action on the 
 3. The system automatically produces the appropriate official PDF(s) for that application type — pre-filled with the citizen's submitted data plus reference data from Oracle
 4. The file downloads to your computer
 
-You do **not** choose between B80 / B81 / etc. — the system selects the right form(s) based on the application's type:
+You do **not** choose the form — the system selects the right one based on the application's type:
 
 | Application type | What the PDF contains |
 |---|---|
-| **Unemployment** claim | B80 (Employer's Certificate of Termination) template pre-filled |
-| **Sickness / Maternity** claim | B81 (Medical Certificate) template pre-filled |
-| Other claim types | The form(s) that NIB Customer Service has configured for that benefit type |
+| **Sickness** / **Injury** claim | The **MED 1** form, pre-filled |
+| **Maternity** (and Maternity Extension) claim | The **MED 2** form, pre-filled |
+| **Unemployment** claim | The unemployment benefit form, pre-filled (it references the citizen-uploaded **B80** Employer's Certificate of Termination where applicable) |
+| **Retirement** claim | The retirement claim form, pre-filled |
+| **Funeral** claim | The funeral benefit form, pre-filled |
 | **Card** application | A printable application summary suitable for the registration office workflow |
+
+> **B80 / B81 are citizen *uploads*, not generated forms.** B80 is the Employer's Certificate of Termination and B81 is the Department of Labour Unemployment Card — both are documents the citizen attaches to an unemployment claim. The PDFs *you* generate here are the MED / benefit forms listed above.
 
 You can print, attach, or save the generated PDF as needed.
 
 > **Empty fields are not errors.** If the citizen didn't provide a required field (e.g., "last employer NIB number" on Unemployment), the form displays a fallback like *"See attached B80 — Employer's Certificate of Termination"*. This is per NIB Customer Service policy (Adena Minus, 2026) — the B80 in the uploaded documents already carries that information so we don't ask the citizen to repeat it on the in-app form.
 
-> The PDFs are rendered server-side with WeasyPrint using Jinja2 templates. If a generation fails, take a screenshot and note the application ID — it may be a template or data issue requiring NIB IT to investigate.
+> The PDFs are generated by the system from the application's submitted data. If a generation fails, take a screenshot, note the application ID, and report it to NIB IT — it may be a template or data issue.
 
 ---
 
@@ -219,7 +220,7 @@ You can print, attach, or save the generated PDF as needed.
 
 The admin portal uses **5 role categories** organized by department. **A user can have multiple roles** (e.g., an officer may carry both Cards and Claims roles).
 
-Roles come from the Oracle `dbo.security_role_user` table, **not** from LDAP groups. LDAP only validates the password.
+Your roles are assigned in the admin role directory, **not** from your LDAP groups — LDAP only validates your password.
 
 ### 7.1 The Five Categories
 
@@ -270,7 +271,7 @@ OHSU (Claims — Injury Benefit only):
 | `SUPERVISOR R` | yes | **yes** | no | no | Cards supervisor |
 | `DEPARTMENT HEAD R` | yes | **yes** | no | no | Cards department head |
 | `NON SUPERVISOR CS` | no | no | yes | no | Claims CS officer (read + route, no approve) |
-| `SUPERVISOR CS` | no | no | yes | **no** | Claims supervisor — can route + reassign, NOT approve |
+| `SUPERVISOR CS` | no | no | yes | **no** | Claims supervisor — can route an application to **themselves** only; cannot reassign to others and cannot approve/deny |
 | `DEPARTMENT HEAD CS` | no | no | yes | **yes** | Claims department head — full approve/deny |
 | `NON SUPERVISOR FIU` | yes | no | yes | no | Family Island junior officer — both domains, read+route only |
 | `SUPERVISOR FIU` | yes | no | yes | no | Family Island supervisor — read+route, no approve |
@@ -299,7 +300,7 @@ Your role also determines which offices' applications you can see:
 | Sub Office Manager FIU | Their sub-office only |
 | Registration roles | All Registration offices (cards are centrally processed) |
 
-> A pending policy update from NIB Customer Service (Adena Minus, 2026) is to widen the CS team's visibility so they can process claims from any office regardless of local-office assignment. Watch for the announcement.
+> CS visibility is scoped per the table above. If your team needs wider cross-office visibility, request it from NIB IT through your department head.
 
 ---
 
@@ -342,16 +343,16 @@ When reviewing:
 |---|---|
 | **The Approve button isn't showing** | Either you're not the Routed To officer, OR your role doesn't include approve rights for this application's domain. Cross-check the role matrix in §7.3. |
 | **I approved by mistake** | Contact NIB IT. The action is permanent in the log; the database state may be amendable but not the audit trail. |
-| **The denial reason dropdown is empty** | Refresh the page. If still empty, this is a known SPA bug — contact NIB IT. |
+| **The denial reason dropdown is empty** | Refresh the page. If it's still empty, contact NIB IT. |
 | **Reassign dropdown doesn't show the officer I want** | The officer may not have the appropriate role for this domain, OR they're in a different local office than this application. |
 | **I want to see ALL offices' applications, not just mine** | Your role's office scope (see §7.4) limits visibility. If you should have nationwide access, request a role upgrade through your department head. |
-| **PDF form generation returns an error** | Take a screenshot, note the application ID, and report to NIB IT. WeasyPrint requires the GTK runtime; corrupt or missing data in the citizen's submission can also fail rendering. |
+| **PDF form generation returns an error** | Take a screenshot, note the application ID, and report to NIB IT. Corrupt or missing data in the citizen's submission can also cause a generation to fail. |
 
 ---
 
 ## 11. Need Help?
 
-- **Role assignment requests** (e.g., "I should be able to approve cards but I'm getting Route To Me only"): submit through your department head, who can request changes to the `dbo.security_role_user` Oracle table from NIB IT.
+- **Role assignment requests** (e.g., "I should be able to approve cards but I'm getting Route To Me only"): submit through your department head, who can request changes to your admin role assignment from NIB IT.
 - **Policy questions** (e.g., "Can self-employed claimants apply?"): contact NIB Customer Service leadership or OHSU. Some policies are still being worked out and the portal will be updated to reflect them.
 - **A bug in the admin portal**: report to NIB IT engineering. Include the application ID, your role, your action, and a screenshot if possible.
 - **Compliance / audit questions**: the Activity Log on each application is your starting point. NIB IT can extract activity-log reports across applications if needed for compliance review.
