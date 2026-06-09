@@ -62,6 +62,8 @@ If a button you expect to see is missing, it's almost always because your role d
 
 Before you can approve, the application must be **routed to you** (or to someone you have authority to act on behalf of). If it isn't, see §4 (Reassignment).
 
+![A claim detail page. For supervisor-tier roles, the **Approve** and **Deny** buttons appear at the top-right next to the status badge.](images/admin/06-claims-application-detail.png)
+
 To approve:
 
 1. Open the application detail page from the queue
@@ -305,6 +307,8 @@ Your role also determines which offices' applications you can see:
 ---
 
 ## 8. The Dashboard / Statistics
+
+![The Dashboard tab — aggregate statistics for the signed-in role's scope.](images/admin/03-dashboard.png)
 
 The **Dashboard** tab in the top nav is where aggregate statistics for your scope render. Depending on your role and current deployment, you may see widgets such as:
 
