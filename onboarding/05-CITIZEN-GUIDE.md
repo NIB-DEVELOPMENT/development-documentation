@@ -130,8 +130,8 @@ Card applications come in three flavors:
 Each flow follows a similar pattern:
 
 1. **Your information** — same demographics confirmation as the claims flow
-2. **Photo upload** — a recent passport-style photo (required)
-3. **Supporting documents** — varies by application type (passport bio page, marriage certificate for name changes, police report for lost cards, etc.)
+2. **Personal ID document** — a scan of your identity document (e.g. passport bio page), shown when you're updating your details. *(A passport-style photo upload field exists in the code but is disabled — `Create.vue` hides it with `v-if="false"`, "temporarily hidden". The application does NOT ask for a photo of yourself.)*
+3. **Supporting documents** — varies by application type (marriage certificate for name changes, police report for lost cards, immigration documents, etc.)
 4. **Review and submit**
 
 ![Card application — create form](images/citizen/16-card-renewal-create.png)
