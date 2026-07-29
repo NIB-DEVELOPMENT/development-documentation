@@ -14,7 +14,7 @@ If the user invokes this skill without any other guidance, ask them what they wa
 
 - **Brand**: The National Insurance Board (NIB) — government social-security authority of The Bahamas. Voice is **formal, official, reassuring**. No emoji, no exclamation marks except in the institutional tagline.
 - **Primary color**: `#1e40af` (Tailwind blue-800). Hover `#1d4ed8`. Deep `#1e3a8a`.
-- **Accent**: cadmium-orange `#e27e2c` — used *only* in the italic "Claims Portal" half of the wordmark.
+- **Accent**: cadmium-orange `#e27e2c` — used *only* in the "Ez" of the **EzCLAIMS** wordmark (`--ez-orange`). Replaced the former italic "Claims Portal" half on 2026-07-29; the new mark is upright.
 - **Typeface**: **Sora** (Google Fonts, weights 300–800). Loaded via `colors_and_type.css`.
 - **Shape language**: white surfaces, `shadow-sm`, `rounded-md` (6px) cards. No gradients in UI chrome (only login splash and the alternating home-page bands).
 - **Icons**: Heroicons outline 24×24, 1.5 stroke. Never emoji.
@@ -51,5 +51,5 @@ If the user invokes this skill without any other guidance, ask them what they wa
 ## Further reading
 
 - Original repo: https://github.com/NIB-DEVELOPMENT/online-claims-submissions-frontend
-- Live wordmark recipe: `src/components/branding/ClaimsPortalBrand.vue`
+- Live wordmark recipe: `src/components/branding/EzClaimsBrand.vue` (metrics in `ezClaimsBrand.ts`). The retired `ClaimsPortalBrand.vue` is kept alongside it on purpose for rollback — do not prune it.
 - Custom Tailwind palette: `tailwind.config.js`

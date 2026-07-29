@@ -95,7 +95,7 @@ After signing in, you land here. This is the **center of everything** — two la
 ![Portal home](images/citizen/05-portal-home.png)
 
 - **Apply Online to Renew your Card** — takes you to the NIB Card renewal flow
-- **Apply Online for Your Benefits** — takes you to the Claims portal
+- **Apply Online for Your Benefits** — takes you to **EzCLAIMS**, the benefit-claims service
 
 In the top-right, your name is displayed (here: "John Doe"). Clicking it opens a menu with your account options and a sign-out link. The top nav has a **Cards** tab and a **Claims** tab — these jump directly to those sections.
 

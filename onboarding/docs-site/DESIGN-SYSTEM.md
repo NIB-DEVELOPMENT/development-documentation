@@ -12,8 +12,12 @@ The National Insurance Board (NIB) is the social-security authority of The Baham
 
 | Product | Sub-brand | Purpose |
 |---|---|---|
-| **Online Claims** | "NIB Online **Claims Portal**" — navy + cadmium-orange wordmark | Apply online for one of 10 cash benefits + 4 cash-assistance benefits (Sickness, Maternity, Funeral, Industrial Injury, Retirement, Unemployment, etc.). View past benefits and saved drafts. |
-| **EzRenew (Card Renewal)** | "EzRenew" — separate sub-brand logo | Apply online to renew an expired NIB photo-ID card. |
+| **EzCLAIMS (Online Claims)** | "NIB Online" above **EzCLAIMS** — navy word, cadmium-orange "Ez" | Apply online for one of 10 cash benefits + 4 cash-assistance benefits (Sickness, Maternity, Funeral, Industrial Injury, Retirement, Unemployment, etc.). View past benefits and saved drafts. |
+| **EzRENEW (Card Renewal)** | "EzRENEW" — sibling sub-brand, gold "Ez" | Apply online to renew an expired NIB photo-ID card. |
+
+Both sub-brands follow the board's **EZ naming convention** (adopted 2026-07-29): a lowercase-`z` `Ez` prefix in the accent colour, joined to the product word in navy caps. `EzCLAIMS` replaced the former italic *"Claims Portal"* wordmark. "NIB Online" remains the umbrella brand above the product mark — the EZ names are product brands, not a portal rename, so the browser tab title, login headings, and email subject prefixes still read "NIB Online".
+
+The two marks differ in accent: EzCLAIMS uses the claims cadmium-orange `#e27e2c`; EzRENEW uses a gold `#f5b400`.
 
 Both products share the same shell (top nav, footer, login flow, account settings) — the design system treats the shell as primary and the two product sections as themed surfaces.
 
@@ -64,7 +68,7 @@ The portal's copy is **formal, official, and reassuring** — appropriate for a 
 
 ### Punctuation, copy quirks
 - Exclamation marks appear in **one** place: the institutional tagline (*"...securing the future!"*). Avoid elsewhere.
-- Italics are used for two purposes: the *"Claims Portal"* wordmark, and for meta/helper notes (e.g. *"\*Note: Saved applications are removed..."*).
+- Italics are reserved for meta/helper notes (e.g. *"\*Note: Saved applications are removed..."*). They were previously also used for the *"Claims Portal"* wordmark; the EzCLAIMS mark that replaced it is upright, so italics no longer carry any brand meaning.
 - Asterisk-prefixed notes (`*Note:`) are the convention for inline disclaimers.
 - "Cards cannot be renewed before it's expiration date" — the live copy contains this typo (*it's* → *its*). Do not propagate it.
 
@@ -93,8 +97,9 @@ The palette is **navy-blue-led with a single warm accent**. The official mark co
 
 - **Primary surfaces**: white (`#ffffff`) with subtle `shadow-sm`. Pages, cards, modals.
 - **Brand primary**: Tailwind **blue-800** `#1e40af` — used for buttons, links, page-title text. Lighten = `blue-700` (hover), Darken = `blue-900` (deep gradients).
-- **Brand accent**: **cadmium-orange** `#e27e2c` — appears *only* in the italic "Claims Portal" wordmark.
-- **Brand secondary wordmark**: **navy** `#1a237e` — the "NIB Online" half of the wordmark.
+- **Brand accent**: **cadmium-orange** `#e27e2c` — appears *only* in the "Ez" of the EzCLAIMS wordmark. Exposed as the CSS custom property `--ez-orange` and the Tailwind alias `ez-orange`.
+- **Brand secondary wordmark**: **navy** `#1a237e` — the "NIB Online" qualifier and the "CLAIMS" half of the mark. Exposed as `--ez-navy` / `ez-navy`.
+- Both mark colours are declared in `src/assets/styles/index.css`, deliberately behind their own names so the wordmark can be re-tinted without touching the component or the page palette.
 - **Login / portal-dark gradient**: `linear-gradient(180deg, #fff 0%, #7b8ecd 60%, #1e40af 100%)` (login splash, top→bottom) and `linear-gradient(340deg, #1e3a8a 0%, #3b82f6 100%)` (alternating portal sections).
 - **Neutrals**: Tailwind `gray` + `blueGray` scales. The footer uses `gray-200`; table headers use `blueGray-100`; striped table rows use `blueGray-50`; inputs on the login screen use a custom `platinum-gray` `#e8e8e8`.
 - **Status**: `green-600` (approved), `red-600` (denied), `blueGray-600` (pending), `amber-50/300/500/800` (callout warning box).
@@ -247,7 +252,7 @@ None. **Sora** is loaded directly from Google Fonts — no local TTF files in th
 
 ## 7. Notes & caveats
 
-- **One product, two sub-brands**: the only "product" surface is the Online Portal itself. Inside, the home page splits into two themed bands ("Claims Portal" + "EzRenew"). The UI kit recreates the shared shell and the Claims-Portal flow, since that's where 90% of the codebase lives.
+- **One product, two sub-brands**: the only "product" surface is the Online Portal itself. Inside, the home page splits into two themed bands (EzCLAIMS + EzRENEW). The UI kit recreates the shared shell and the EzCLAIMS flow, since that's where 90% of the codebase lives.
 - **No marketing site** was provided. If NIB has a separate public-facing nib-bahamas.com site, treat this system as **portal-only** and verify the marketing brand separately.
 - **No mobile app** was provided; the portal is responsive web, mobile-first at the breakpoints `sm` 640, `md` 768, `lg` 1024.
 - **Sora** is the only typeface. Montserrat is declared as a fallback in the Tailwind config but is never seen.
@@ -263,7 +268,8 @@ To extend or rebuild this design system, browse the source repository:
 Useful entry points:
 - `tailwind.config.js` — full custom palette
 - `src/views/Login.vue`, `src/views/home/HomeIndex.vue` — splash + home
-- `src/components/branding/ClaimsPortalBrand.vue` — wordmark recipe
+- `src/components/branding/EzClaimsBrand.vue` — wordmark recipe (four lockups × three sizes), with its metrics in the sibling `ezClaimsBrand.ts` so they can be unit tested without a DOM
+- `src/components/branding/ClaimsPortalBrand.vue` — the retired *"Claims Portal"* wordmark, **retained on purpose** so the previous brand can be restored if the decision is reversed. Not dead code; do not prune.
 - `src/components/layout/DefaultLayout.vue` — top nav + footer
 - `src/components/auth/forms/LoginForm.vue` — form anatomy
 - `src/views/claims/index.vue` — table + status-chip pattern
