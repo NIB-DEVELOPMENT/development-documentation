@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Supervisor Manual — NIB Online Portal</title>
+<title>Supervisor Manual: NIB Online Portal</title>
 <link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
 <link rel="stylesheet" href="../colors_and_type.css">
 <link rel="stylesheet" href="docs.css">
@@ -40,8 +40,7 @@
       <li><a href="#quickref">1. Quick reference</a></li>
       <li><a href="#approve">2. Approving</a></li>
       <li><a href="#deny">3. Denying</a></li>
-      <li><a href="#selfemployed" class="lvl-2">3.1 Self-employed soft-denial</a></li>
-      <li><a href="#reassign">4. Reassigning</a></li>
+            <li><a href="#reassign">4. Reassigning</a></li>
       <li><a href="#localoffice">5. Changing local office</a></li>
       <li><a href="#pdf">6. Generating an official form</a></li>
       <li><a href="#roles">7. Role reference</a></li>
@@ -70,8 +69,8 @@
       </div>
     </div>
 
-    <h2 id="about"><span class="doc-h-num">§</span>About this manual</h2>
-    <p>This manual covers the supervisor-tier actions on the Admin Portal — the workflows that are reserved for roles with approval authority and office-management responsibility.</p>
+    <h2 id="about">About this manual</h2>
+    <p>This manual covers the supervisor-tier actions on the Admin Portal, the workflows that are reserved for roles with approval authority and office-management responsibility.</p>
     <p><strong>Who should read this:</strong></p>
     <ul>
       <li>Customer Service Department Head (<span class="role role--cs">DEPARTMENT HEAD CS</span>)</li>
@@ -86,7 +85,7 @@
       <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
       <div class="callout__body">
         <span class="callout__title">Prerequisite reading</span>
-        Everything in the <a href="admin-manual.html">Admin Manual</a> is a prerequisite — please skim that first if you haven't. This document assumes you can already sign in, find an application, open the detail page, download documents, and request re-uploads.
+        Everything in the <a href="admin-manual.html">Admin Manual</a> is a prerequisite, please skim that first if you haven't. This document assumes you can already sign in, find an application, open the detail page, download documents, and request re-uploads.
       </div>
     </div>
 
@@ -96,12 +95,12 @@
       <li>How to deny an application with the correct reason</li>
       <li>How to reassign an application from one officer to another</li>
       <li>How to change the local office handling an application</li>
-      <li>How to generate official forms (B80, B81, etc.) as PDFs</li>
+      <li>How to <strong>generate official forms</strong> (the MED 1 / MED 2 medical forms and the other benefit forms) as PDFs</li>
       <li>The complete role reference showing which roles can do what</li>
       <li>How the office-scoping model affects what each role sees</li>
     </ul>
 
-    <h2 id="quickref"><span class="doc-h-num">1.</span>Quick reference — what you can do</h2>
+    <h2 id="quickref"><span class="doc-h-num">1.</span>Quick Reference: What You Can Do</h2>
     <p>Your role determines exactly which buttons show up on an application's detail page. The table below summarizes:</p>
     <table>
       <thead><tr><th style="width: 18%">Action</th><th>Cards roles that can do it</th><th>Claims roles that can do it</th></tr></thead>
@@ -133,8 +132,8 @@
         </tr>
         <tr>
           <td><strong>Change Local Office</strong></td>
-          <td>(Same as Approve) — and only while application is un-routed and status=<span class="chip-inline chip-inline--pending">Pending</span></td>
-          <td>(Same as Approve) — and only while application is un-routed and status=<span class="chip-inline chip-inline--pending">Pending</span></td>
+          <td>(Same as Approve), and only while application is un-routed and status=<span class="chip-inline chip-inline--pending">Pending</span></td>
+          <td>(Same as Approve), and only while application is un-routed and status=<span class="chip-inline chip-inline--pending">Pending</span></td>
         </tr>
         <tr>
           <td><strong>Generate PDF</strong></td>
@@ -152,20 +151,20 @@
       <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
       <div class="callout__body">
         <span class="callout__title">Claims and cards have different matrices on purpose.</span>
-        <span class="role role--cs">DEPARTMENT HEAD CS</span> can approve claims but cannot approve cards (because cards live in the Registration department). <span class="role role--fiu">MANAGER FIU</span> can approve both. See <a href="#roles">§7</a> for the full role reference. If a button you expect to see is missing, it's almost always because your role doesn't include that permission — double-check the role table before assuming there's a bug.
+        <span class="role role--cs">DEPARTMENT HEAD CS</span> can approve claims but cannot approve cards (because cards live in the Registration department). <span class="role role--fiu">MANAGER FIU</span> can approve both. See <a href="#roles">Section 7</a> for the full role reference. If a button you expect to see is missing, it's almost always because your role doesn't include that permission, double-check the role table before assuming there's a bug.
       </div>
     </div>
 
     <h2 id="approve"><span class="doc-h-num">2.</span>Approving an application</h2>
-    <p>Before you can approve, the application must be routed to you (or to someone you have authority to act on behalf of). If it isn't, see <a href="#reassign">§4 (Reassignment)</a>.</p>
+    <p>Before you can approve, the application must be routed to you (or to someone you have authority to act on behalf of). If it isn't, see <a href="#reassign">Section 4 (Reassignment)</a>.</p>
     <p><strong>To approve:</strong></p>
     <ol class="steps">
       <li>Open the application detail page from the queue</li>
       <li>Confirm the <strong>Routed To</strong> field shows your name</li>
-      <li>Review all the claimant's details, documents, and contact information one more time</li>
+      <li>Review all the claimant's details, including the <strong>Payment</strong> section (how and where the benefit will be paid), plus the documents and contact information one more time</li>
       <li>Click the <strong>Approve</strong> button (top right of the detail page)</li>
-      <li>A confirmation dialog appears asking you to verify the action</li>
-      <li>Click <strong>Confirm Approval</strong></li>
+      <li>A browser confirmation prompt appears ("Are you sure you want to approve this application?")</li>
+      <li>Click <strong>OK</strong> to confirm</li>
     </ol>
     <p><strong>What happens next:</strong></p>
     <ul>
@@ -173,13 +172,13 @@
       <li>The activity log records your approval with a timestamp</li>
       <li>The citizen receives an automatic approval email</li>
       <li>For claims, downstream payment scheduling picks up the approval (handled outside this portal)</li>
-      <li>For cards, the next status is typically <span class="chip-inline chip-inline--info">Ready for Pickup</span> — the card is printed at the central registration office and shipped to the citizen's local office for collection</li>
+      <li>For cards, the next status is typically <span class="chip-inline chip-inline--info">Ready for Pickup</span>: the card is printed at the central registration office and shipped to the citizen's local office for collection</li>
     </ul>
     <div class="callout callout--danger">
       <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
       <div class="callout__body">
         <span class="callout__title">Approve is final. There is no undo button.</span>
-        If you approve in error, contact NIB IT — the database state can be amended but the action will be visible in the audit log permanently.
+        If you approve in error, contact NIB IT. The database state can be amended, but the action will be visible in the audit log permanently.
       </div>
     </div>
     <h4>When NOT to approve</h4>
@@ -188,7 +187,7 @@
       <li>A document is unreadable or expired (request a re-upload first)</li>
       <li>The claimant's banking details don't match what was uploaded (request a re-upload of the banking doc)</li>
       <li>The application has a <span class="chip-inline chip-inline--reupload">Reupload Requested</span> status (the citizen still needs to respond)</li>
-      <li>You're uncertain about eligibility — escalate to your department head</li>
+      <li>You're uncertain about eligibility. Escalate to your department head</li>
     </ul>
 
     <h2 id="deny"><span class="doc-h-num">3.</span>Denying an application</h2>
@@ -197,9 +196,9 @@
       <li>Open the application detail page</li>
       <li>Confirm <strong>Routed To = your name</strong></li>
       <li>Click <strong>Deny</strong> (next to the Approve button)</li>
-      <li>A dialog appears with a denial reason dropdown — choose the appropriate reason</li>
-      <li>Optionally add free-text notes</li>
-      <li>Click <strong>Confirm Denial</strong></li>
+      <li>A menu of <strong>denial reasons</strong> (loaded from the system) appears, click the appropriate reason</li>
+      <li>A browser confirmation prompt then appears, click <strong>OK</strong> to confirm</li>
+      <li>The reason you pick is what is recorded in the audit log and emailed to the citizen; there is no separate free-text notes field</li>
     </ol>
     <p><strong>What happens next:</strong></p>
     <ul>
@@ -209,7 +208,7 @@
       <li>The citizen can contact NIB if they want to challenge the denial</li>
     </ul>
     <h4>Denial reasons</h4>
-    <p>Common reasons (the exact list may vary by application type):</p>
+    <p>The actual reasons are loaded from the system and vary by application type; you pick one from the menu. Typical examples:</p>
     <table>
       <thead><tr><th style="width: 30%">Reason</th><th>When to use</th></tr></thead>
       <tbody>
@@ -218,22 +217,13 @@
         <tr><td><strong>Missing or invalid documents</strong></td><td>Required documents are still missing or fundamentally wrong (after re-upload attempts)</td></tr>
         <tr><td><strong>Duplicate application</strong></td><td>This citizen has already submitted (and possibly received) the same benefit</td></tr>
         <tr><td><strong>Not currently employed</strong></td><td>(Unemployment) Claimant doesn't appear to have ceased employment</td></tr>
-        <tr><td><strong>Self-employed</strong></td><td>(Some benefits) — as of 2026-Q2, self-employed claimants are soft-denied with instructions to visit their local office for in-person processing. See <a href="#selfemployed">§3.1</a>.</td></tr>
+        <tr><td><strong>Self-employed</strong></td><td>(Some benefits) self-employed claimants may require in-person processing at their local office; confirm current policy with NIB Customer Service before denying on this basis</td></tr>
         <tr><td><strong>Other (with notes)</strong></td><td>Specific to the case; explain in the notes field</td></tr>
       </tbody>
     </table>
 
-    <h3 id="selfemployed">3.1 Self-employed soft-denial (planned policy)</h3>
-    <div class="callout callout--info">
-      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-2.21 0-4-1.5-4-3.354 0-1.853 1.79-3.354 4-3.354.768 0 1.536.219 2.121.659l.879.659M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      <div class="callout__body">
-        <span class="callout__title">Coming soon (target: mid-2026)</span>
-        Self-employed claimants will be flagged automatically and shown a special soft-denial message asking them to visit their local NIB office for in-person processing. Until the automation is in place, deny manually with the "Self-employed" reason and add a note pointing them to their local office. This is being implemented as part of OHSU-led policy alignment. Watch for an internal announcement.
-      </div>
-    </div>
-
     <h2 id="reassign"><span class="doc-h-num">4.</span>Reassigning an application</h2>
-    <p>Use reassignment when an application is routed to the wrong officer — for example, the officer is out of office, the workload needs balancing, or the application should belong to a different department.</p>
+    <p>Use reassignment when an application is routed to the wrong officer, for example, the officer is out of office, the workload needs balancing, or the application should belong to a different department.</p>
     <p><strong>To reassign:</strong></p>
     <ol class="steps">
       <li>Open the application detail page</li>
@@ -251,7 +241,7 @@
     <p>If you want to "un-claim" an application (return it to the unrouted pool):</p>
     <ol class="steps">
       <li>Open the application detail page</li>
-      <li>Click <strong>Remove Assignment</strong> (icon next to the Routed To field)</li>
+      <li>Click <strong>Remove Assignment</strong> (the icon next to the Routed To field)</li>
       <li>Confirm</li>
     </ol>
     <p>The application now has no Routed To and any officer in the appropriate scope can claim it via <strong>Route To Me</strong>.</p>
@@ -264,27 +254,27 @@
     </div>
 
     <h2 id="localoffice"><span class="doc-h-num">5.</span>Changing the local office</h2>
-    <p>If an application landed on the wrong office (e.g., the citizen entered the wrong office during registration, or they've since moved), this may be possible to fix from the application detail page — but the feature is narrowly gated.</p>
+    <p>If an application landed on the wrong office (e.g., the citizen entered the wrong office during registration, or they've since moved), this may be possible to fix from the application detail page, but the feature is narrowly gated.</p>
     <div class="callout callout--warning">
       <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
       <div class="callout__body">
         <span class="callout__title">The Local Office dropdown is only enabled when all three are true:</span>
         <ol style="margin: 6px 0 0;">
-          <li>You hold a <strong>canEdit</strong> role (manager-tier — see <a href="#matrix">§7.3</a>)</li>
+          <li>You hold a <strong>canEdit</strong> role (manager-tier, see <a href="#matrix">Section 7.3</a>)</li>
           <li>The application has <strong>not yet been routed</strong> to any officer (<strong>Routed To</strong> is empty)</li>
           <li>The application's status is <span class="chip-inline chip-inline--pending">Pending</span> (brand-new submission, not yet in review)</li>
         </ol>
       </div>
     </div>
-    <p>In practice, that means you can change the local office on a freshly-submitted application before anyone claims it, but once an officer routes the application to themselves, the dropdown becomes read-only. This is by design — once review has started, an office change would orphan the activity log.</p>
+    <p>In practice, that means you can change the local office on a freshly-submitted application before anyone claims it, but once an officer routes the application to themselves, the dropdown becomes read-only. This is by design, once review has started, an office change would orphan the activity log.</p>
     <p>If you find an application that needs to move offices after someone has routed it, the workflow is:</p>
     <ol class="steps">
-      <li>Ask the current routed-to officer to <strong>Remove Assignment</strong> (un-route it) — or, if you have reassignment rights, do it yourself</li>
+      <li>A manager-tier (canEdit) user clicks <strong>Remove Assignment</strong> to un-route it (the control isn't available to non-manager officers, so a department head or manager does this)</li>
       <li>Once the application is back in the unrouted pool with status <span class="chip-inline chip-inline--pending">Pending</span>, the Local Office dropdown will enable</li>
       <li>Choose the correct office and confirm</li>
       <li>The application moves to the new office's queue</li>
     </ol>
-    <p>If you expect to see the dropdown enabled and it isn't, check the three conditions above first. If all three are met and the dropdown is still greyed out, contact NIB IT — there may be a role/permission mismatch.</p>
+    <p>If you expect to see the dropdown enabled and it isn't, check the three conditions above first. If all three are met and the dropdown is still greyed out, contact NIB IT. There may be a role/permission mismatch.</p>
     <p><em>Changing the local office DOES NOT automatically reassign the Routed To officer. The previous officer's audit history remains in the log; the application simply moves to the new office's queue.</em></p>
 
     <h2 id="pdf"><span class="doc-h-num">6.</span>Generating an official form (PDF)</h2>
@@ -293,28 +283,37 @@
     <ol class="steps">
       <li>Open the application detail page</li>
       <li>Click <strong>Generate PDF</strong></li>
-      <li>The system automatically produces the appropriate official PDF(s) for that application type — pre-filled with the citizen's submitted data plus reference data from Oracle</li>
+      <li>The system automatically produces the appropriate official PDF(s) for that application type, pre-filled with the citizen's submitted data plus reference data from Oracle</li>
       <li>The file downloads to your computer</li>
     </ol>
-    <p>You do not choose between B80 / B81 / etc. — the system selects the right form(s) based on the application's type:</p>
+    <p>You do <strong>not</strong> choose the form, the system selects the right one based on the application's type:</p>
     <table>
       <thead><tr><th>Application type</th><th>What the PDF contains</th></tr></thead>
       <tbody>
-        <tr><td><strong>Unemployment claim</strong></td><td>B80 (Employer's Certificate of Termination) template pre-filled</td></tr>
-        <tr><td><strong>Sickness / Maternity claim</strong></td><td>B81 (Medical Certificate) template pre-filled</td></tr>
-        <tr><td><strong>Other claim types</strong></td><td>The form(s) that NIB Customer Service has configured for that benefit type</td></tr>
+        <tr><td><strong>Sickness</strong> / <strong>Injury</strong> claim</td><td>The <strong>MED 1</strong> form, pre-filled</td></tr>
+        <tr><td><strong>Maternity</strong> (and Maternity Extension) claim</td><td>The <strong>MED 2</strong> form, pre-filled</td></tr>
+        <tr><td><strong>Unemployment</strong> claim</td><td>The unemployment benefit form, pre-filled (it references the citizen-uploaded <strong>B80</strong> Employer's Certificate of Termination where applicable)</td></tr>
+        <tr><td><strong>Retirement</strong> claim</td><td>The retirement claim form, pre-filled</td></tr>
+        <tr><td><strong>Funeral</strong> claim</td><td>The funeral benefit form, pre-filled</td></tr>
         <tr><td><strong>Card application</strong></td><td>A printable application summary suitable for the registration office workflow</td></tr>
       </tbody>
     </table>
+    <div class="callout callout--info">
+      <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+      <div class="callout__body">
+        <span class="callout__title">B80 / B81 are citizen uploads, not generated forms.</span>
+        B80 is the Employer's Certificate of Termination and B81 is the Department of Labour Unemployment Card. Both are documents the citizen attaches to an unemployment claim. The PDFs <em>you</em> generate here are the MED and benefit forms listed above.
+      </div>
+    </div>
     <p>You can print, attach, or save the generated PDF as needed.</p>
     <div class="callout callout--info">
       <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
       <div class="callout__body">
         <span class="callout__title">Empty fields are not errors</span>
-        If the citizen didn't provide a required field (e.g., "last employer NIB number" on Unemployment), the form displays a fallback like <em>"See attached B80 — Employer's Certificate of Termination"</em>. This is per NIB Customer Service policy (Adena Minus, 2026) — the B80 in the uploaded documents already carries that information so we don't ask the citizen to repeat it on the in-app form.
+        If the citizen didn't provide a required field (e.g., "last employer NIB number" on Unemployment), the form displays a fallback like <em>"See attached B80, Employer's Certificate of Termination"</em>. This is per NIB Customer Service policy (Adena Minus, 2026), the B80 in the uploaded documents already carries that information so we don't ask the citizen to repeat it on the in-app form.
       </div>
     </div>
-    <p style="font-size: 14px; color: var(--fg-3);">The PDFs are rendered server-side with WeasyPrint using Jinja2 templates. If a generation fails, take a screenshot and note the application ID — it may be a template or data issue requiring NIB IT to investigate.</p>
+    <p style="font-size: 14px; color: var(--fg-3);">The PDFs are rendered server-side with WeasyPrint using Jinja2 templates. If a generation fails, take a screenshot and note the application ID, it may be a template or data issue requiring NIB IT to investigate.</p>
 
     <h2 id="roles"><span class="doc-h-num">7.</span>Role reference (authoritative)</h2>
     <p>The admin portal uses <strong>5 role categories</strong> organized by department. A user can have multiple roles (e.g., an officer may carry both Cards and Claims roles).</p>
@@ -328,7 +327,7 @@
         <tr><td><strong>Customer Service</strong> (<span class="role role--cs">CS</span>)</td><td><code>…CS</code></td><td>Process claims applications</td></tr>
         <tr><td><strong>Family Island Unit</strong> (<span class="role role--fiu">FIU</span>)</td><td><code>…FIU</code></td><td>Process applications from non-Nassau islands (geographic)</td></tr>
         <tr><td><strong>IT</strong></td><td><code>…IT</code></td><td>View access for support; Security Manager has elevated access</td></tr>
-        <tr><td><strong>OHSU</strong></td><td><code>…OHSU</code></td><td>Occupational Health and Safety Unit — Injury Benefit claims</td></tr>
+        <tr><td><strong>OHSU</strong></td><td><code>…OHSU</code></td><td>Occupational Health and Safety Unit, Injury Benefit claims</td></tr>
       </tbody>
     </table>
 
@@ -368,7 +367,7 @@
         </ul>
       </div>
       <div>
-        <h4 style="margin-top: 0;">OHSU (Claims — Injury Benefit only)</h4>
+        <h4 style="margin-top: 0;">OHSU (Claims, Injury Benefit only)</h4>
         <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px;">
           <li><span class="role role--ohsu">NON&nbsp; SUPERVISOR OHSU</span></li>
           <li><span class="role role--ohsu">DEPARTMENT HEAD&nbsp; OHSU</span></li>
@@ -379,11 +378,11 @@
       <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
       <div class="callout__body">
         <span class="callout__title">Don't "fix" the double-space</span>
-        The double-space in <code>NON&nbsp; SUPERVISOR FIU</code> and the OHSU roles is <strong>intentional</strong> — it matches the legacy Oracle data and must be preserved exactly when assigning roles.
+        The double-space in <code>NON&nbsp; SUPERVISOR FIU</code> and the OHSU roles is <strong>intentional</strong>: it matches the legacy Oracle data and must be preserved exactly when assigning roles.
       </div>
     </div>
 
-    <h3 id="matrix">7.3 What each role can do — full matrix</h3>
+    <h3 id="matrix">7.3 What each role can do, full matrix</h3>
     <table>
       <thead>
         <tr>
@@ -415,47 +414,47 @@
         <tr><td><span class="role role--cs">SUPERVISOR CS</span></td>
           <td><span class="yn yn--no">no</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
-          <td>Claims supervisor — can route + reassign, <strong>NOT</strong> approve</td></tr>
+          <td>Claims supervisor, can route an application to <strong>themselves</strong> only; cannot reassign to others and cannot approve/deny</td></tr>
         <tr><td><span class="role role--cs">DEPARTMENT HEAD CS</span></td>
           <td><span class="yn yn--no">no</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--yes">yes</span></td>
-          <td>Claims department head — full approve/deny</td></tr>
+          <td>Claims department head, full approve/deny</td></tr>
         <tr><td><span class="role role--fiu">NON&nbsp; SUPERVISOR FIU</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
-          <td>Family Island junior — both domains, read + route only</td></tr>
+          <td>Family Island junior, both domains, read + route only</td></tr>
         <tr><td><span class="role role--fiu">SUPERVISOR FIU</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
-          <td>Family Island supervisor — read + route, no approve</td></tr>
+          <td>Family Island supervisor, read + route, no approve</td></tr>
         <tr><td><span class="role role--fiu">MANAGER FIU</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--yes">yes</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--yes">yes</span></td>
-          <td>Family Island manager — full approve/deny on both</td></tr>
+          <td>Family Island manager, full approve/deny on both</td></tr>
         <tr><td><span class="role role--fiu">SUB OFFICE MANAGER FIU</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--yes">yes</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--yes">yes</span></td>
-          <td>Sub-office manager — full approve/deny on both</td></tr>
+          <td>Sub-office manager, full approve/deny on both</td></tr>
         <tr><td><span class="role role--it">NON SUPERVISOR IT</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
-          <td>IT support — view-only</td></tr>
+          <td>IT support, view-only</td></tr>
         <tr><td><span class="role role--it">SUPERVISOR IT</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
-          <td>IT supervisor — view-only</td></tr>
+          <td>IT supervisor, view-only</td></tr>
         <tr><td><span class="role role--it">SECURITY MANAGER IT</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
-          <td>IT security — view-only</td></tr>
+          <td>IT security, view-only</td></tr>
         <tr><td><span class="role role--ohsu">NON&nbsp; SUPERVISOR OHSU</span></td>
           <td><span class="yn yn--no">no</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--no">no</span></td>
-          <td>OHSU staff — claims read + route for injury benefits</td></tr>
+          <td>OHSU staff, claims read + route for injury benefits</td></tr>
         <tr><td><span class="role role--ohsu">DEPARTMENT HEAD&nbsp; OHSU</span></td>
           <td><span class="yn yn--no">no</span></td><td><span class="yn yn--no">no</span></td>
           <td><span class="yn yn--yes">yes</span></td><td><span class="yn yn--yes">yes</span></td>
-          <td>OHSU dept head — full approve/deny</td></tr>
+          <td>OHSU dept head, full approve/deny</td></tr>
       </tbody>
     </table>
     <div class="callout callout--warning">
@@ -481,7 +480,7 @@
         <tr><td><strong>Registration roles</strong></td><td>All Registration offices (cards are centrally processed)</td></tr>
       </tbody>
     </table>
-    <p style="font-size: 14px; color: var(--fg-3); font-style: italic;">A pending policy update from NIB Customer Service (Adena Minus, 2026) is to widen the CS team's visibility so they can process claims from any office regardless of local-office assignment. Watch for the announcement.</p>
+    <p style="font-size: 14px; color: var(--fg-3); font-style: italic;">CS visibility is scoped per the table above. If your team needs wider cross-office visibility, request it from NIB IT through your department head.</p>
 
     <h2 id="dashboard"><span class="doc-h-num">8.</span>The Dashboard / Statistics</h2>
     <p>The <strong>Dashboard</strong> tab in the top nav is where aggregate statistics for your scope render. Depending on your role and current deployment, you may see widgets such as:</p>
@@ -494,15 +493,15 @@
     <p>Department Heads see office-wide stats. Managers see Family Island Unit stats. CS Officers see their own caseload.</p>
     <p style="font-size: 14px; color: var(--fg-3);">The dashboard statistics view is being expanded as part of the post-launch initiatives. If you need specific reports that aren't visible, contact NIB IT to request them.</p>
 
-    <h2 id="audit"><span class="doc-h-num">9.</span>The Activity Log — audit trail</h2>
-    <p>Every action you take (approval, denial, reassignment, local-office change, etc.) is logged with a timestamp and your username. The activity log on each application's detail page is the <strong>regulatory audit trail</strong> — not just a UI convenience.</p>
+    <h2 id="audit"><span class="doc-h-num">9.</span>The Activity Log: Audit Trail</h2>
+    <p>Every action you take (approval, denial, reassignment, local-office change, etc.) is logged with a timestamp and your username. The activity log on each application's detail page is the <strong>regulatory audit trail</strong>, not just a UI convenience.</p>
     <div class="callout callout--audit">
       <svg class="callout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
       <div class="callout__body">
         <span class="callout__title">When acting</span>
         <ul style="margin: 6px 0 0; padding-left: 20px;">
           <li><strong>Be deliberate.</strong> Every action is permanently recorded.</li>
-          <li><strong>Use notes fields</strong> where available — your reasoning can help others (including future you) understand the action months later.</li>
+          <li><strong>Use notes fields</strong> where available, your reasoning can help others (including future you) understand the action months later.</li>
           <li>If you take an action you regret, do <strong>NOT</strong> try to hide it. Contact NIB IT to amend the database state if needed; the original action remains in the log.</li>
         </ul>
       </div>
@@ -511,7 +510,7 @@
     <ul>
       <li>Always read the activity log before approving or denying.</li>
       <li>The log may show that a previous officer requested a re-upload that the citizen is still working on.</li>
-      <li>The log may show that a different department head previously denied — escalate to determine if anything has changed.</li>
+      <li>The log may show that a different department head previously denied, escalate to determine if anything has changed.</li>
     </ul>
 
     <h2 id="issues"><span class="doc-h-num">10.</span>Common issues</h2>
@@ -520,16 +519,16 @@
       <tbody>
         <tr><td>The Approve button isn't showing</td><td>Either you're not the Routed To officer, OR your role doesn't include approve rights for this application's domain. Cross-check the <a href="#matrix">role matrix</a>.</td></tr>
         <tr><td>I approved by mistake</td><td>Contact NIB IT. The action is permanent in the log; the database state may be amendable but not the audit trail.</td></tr>
-        <tr><td>The denial reason dropdown is empty</td><td>Refresh the page. If still empty, this is a known SPA bug — contact NIB IT.</td></tr>
+        <tr><td>The denial reason dropdown is empty</td><td>Refresh the page. If it's still empty, contact NIB IT.</td></tr>
         <tr><td>Reassign dropdown doesn't show the officer I want</td><td>The officer may not have the appropriate role for this domain, OR they're in a different local office than this application.</td></tr>
         <tr><td>I want to see ALL offices' applications, not just mine</td><td>Your role's <a href="#scoping">office scope</a> limits visibility. If you should have nationwide access, request a role upgrade through your department head.</td></tr>
-        <tr><td>PDF form generation returns an error</td><td>Take a screenshot, note the application ID, and report to NIB IT. WeasyPrint requires the GTK runtime; corrupt or missing data in the citizen's submission can also fail rendering.</td></tr>
+        <tr><td>PDF form generation returns an error</td><td>Take a screenshot, note the application ID, and report to NIB IT. Corrupt or missing data in the citizen's submission can also cause a generation to fail.</td></tr>
       </tbody>
     </table>
 
     <h2 id="help"><span class="doc-h-num">11.</span>Need help?</h2>
     <ul>
-      <li><strong>Role assignment requests</strong> (e.g., "I should be able to approve cards but I'm getting Route To Me only"): submit through your department head, who can request changes to the <code>dbo.security_role_user</code> Oracle table from NIB IT.</li>
+      <li><strong>Role assignment requests</strong> (e.g., "I should be able to approve cards but I'm getting Route To Me only"): submit through your department head, who can request changes to your admin role assignment from NIB IT.</li>
       <li><strong>Policy questions</strong> (e.g., "Can self-employed claimants apply?"): contact NIB Customer Service leadership or OHSU. Some policies are still being worked out and the portal will be updated to reflect them.</li>
       <li><strong>A bug in the admin portal:</strong> report to NIB IT engineering. Include the application ID, your role, your action, and a screenshot if possible.</li>
       <li><strong>Compliance / audit questions:</strong> the Activity Log on each application is your starting point. NIB IT can extract activity-log reports across applications if needed for compliance review.</li>
@@ -538,13 +537,13 @@
     <hr>
     <h3 id="docinfo">Document information</h3>
     <dl class="defstrip">
-      <div><dt>Title</dt><dd>NIB Online Portal — Supervisor Manual</dd></div>
+      <div><dt>Title</dt><dd>NIB Online Portal, Supervisor Manual</dd></div>
       <div><dt>Audience</dt><dd>Department Heads, Managers &amp; Supervisors (canEdit-tier roles)</dd></div>
       <div><dt>Version</dt><dd>1.0</dd></div>
       <div><dt>Issued</dt><dd>2026-05-20</dd></div>
       <div><dt>Published by</dt><dd>National Insurance Board of The Bahamas</dd></div>
     </dl>
-    <p style="font-size: 13px; color: var(--fg-3);">This manual covers the supervisor-tier workflows. For basic admin operations (sign-in, queue, review, route, document download, re-upload requests, activity log), please refer to the <a href="admin-manual.html">Admin Manual</a>. The role matrix and office scoping in <a href="#roles">§7</a> are derived from the live system configuration as of the issue date. If new roles are added or canEdit policies change, this manual will be re-issued.</p>
+    <p style="font-size: 13px; color: var(--fg-3);">This manual covers the supervisor-tier workflows. For basic admin operations (sign-in, queue, review, route, document download, re-upload requests, activity log), please refer to the <a href="admin-manual.html">Admin Manual</a>. The role matrix and office scoping in <a href="#roles">Section 7</a> are derived from the live system configuration as of the issue date. If new roles are added or canEdit policies change, this manual will be re-issued.</p>
 
   </main>
 </div>

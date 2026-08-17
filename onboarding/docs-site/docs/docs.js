@@ -1,4 +1,4 @@
-// NIB Docs — small interactions: anchor links, scrollspy
+// NIB Docs, small interactions: anchor links, scrollspy
 (function () {
   // 1. Add # anchor pseudo-links to every h2/h3/h4 with an id
   document.querySelectorAll('.doc-main h2[id], .doc-main h3[id], .doc-main h4[id]').forEach(function (h) {
@@ -17,7 +17,7 @@
     h.appendChild(a);
   });
 
-  // 2. Scrollspy — highlight current section in sidebar
+  // 2. Scrollspy, highlight current section in sidebar
   var sidebarLinks = Array.from(document.querySelectorAll('.doc-sidebar__list a[href^="#"]'));
   if (!sidebarLinks.length) return;
   var headings = sidebarLinks.map(function (a) {

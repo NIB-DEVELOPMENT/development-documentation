@@ -1,5 +1,5 @@
 /* ============================================================
-   NIB Online Portal — Documentation Styles
+   NIB Online Portal, Documentation Styles
    Shared by index, user-manual, admin-manual, supervisor-manual,
    storage-brief. Inherits design tokens from ../colors_and_type.css.
    ============================================================ */
@@ -372,7 +372,7 @@ body {
   .doc-layout { display: block; padding: 0; max-width: none; margin: 0; }
   .doc-main { max-width: none; }
 
-  /* Hero block — runs once on page 1 */
+  /* Hero block, runs once on page 1 */
   .doc-hero { padding: 0 0 14pt; margin: 0 0 18pt; border-bottom: 1.5pt solid #1e40af; }
   .doc-hero__title { font-size: 26pt; margin-bottom: 8pt; }
   .doc-hero__sub { font-size: 12pt; }

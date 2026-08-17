@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Document Storage Brief — JUMVM16FILESRV2</title>
+<title>Document Storage Brief, JUMVM16FILESRV2</title>
 <link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
 <link rel="stylesheet" href="../colors_and_type.css">
 <link rel="stylesheet" href="docs.css">
@@ -65,7 +65,7 @@
       </div>
     </div>
 
-    <h2 id="summary"><span class="doc-h-num">§</span>Executive summary</h2>
+    <h2 id="summary">Executive summary</h2>
     <p>Document scan storage on JUMVM16FILESRV2 is <strong>stable</strong>. The historical compression backlog is complete and an automated nightly compression job is now scheduled, extending current runway from approximately <strong>2.7 months</strong> to approximately <strong>10 months</strong> at the present ingest rate.</p>
     <p>Compression scope covers scan files from the legacy OptiView system (including v3) and the current OptiNew system, which share the same on-disk store.</p>
 
@@ -137,7 +137,7 @@
         <tr><td><strong>14-day average</strong> (all days)</td><td style="text-align:right">~5,300</td><td style="text-align:right">~38 GB</td><td>Uncompressed</td></tr>
         <tr><td><strong>Weekday-only average</strong></td><td style="text-align:right">~7,250</td><td style="text-align:right">~51.5 GB</td><td>Uncompressed</td></tr>
         <tr><td><strong>Weekend average</strong></td><td style="text-align:right">~0</td><td style="text-align:right">~0</td><td>Idle</td></tr>
-        <tr><td><strong>After JPEG-q85 compression</strong></td><td style="text-align:right">—</td><td style="text-align:right">~13 GB</td><td>65.5% reclaim · durable footprint</td></tr>
+        <tr><td><strong>After JPEG-q85 compression</strong></td><td style="text-align:right">,</td><td style="text-align:right">~13 GB</td><td>65.5% reclaim · durable footprint</td></tr>
       </tbody>
     </table>
 
@@ -182,7 +182,7 @@
 
     <h2 id="compression"><span class="doc-h-num">5.</span>Automated compression job</h2>
     <p>A Windows Scheduled Task on JUMVM16FILESRV2 now runs <strong>every night at 02:00</strong>, invoking the parallel <code>compress_range.py</code> against the previous day's scans. The job is wrapped in an NSSM service so it exits cleanly after each run; a safety task at <strong>07:30</strong> issues a stop in the unlikely event a run is still active when users return.</p>
-    <p>Compression scope is <strong>unified across all generations on the share</strong> — legacy OptiView, OptiView v3, and current OptiNew — since they share the same on-disk file set.</p>
+    <p>Compression scope is <strong>unified across all generations on the share</strong>: legacy OptiView, OptiView v3, and current OptiNew, since they share the same on-disk file set.</p>
 
     <table>
       <thead><tr><th>Parameter</th><th>Value</th><th>Rationale</th></tr></thead>
@@ -202,8 +202,8 @@
     <p style="font-size: 13px; color: var(--fg-3);">Figures derived from the <code>OV_Files</code> database, <code>shutil.disk_usage</code> snapshots, and the last 14 days of ingest sampled on <strong>2026-05-20</strong>.</p>
 
     <dl class="defstrip">
-      <div><dt>Title</dt><dd>Document Storage Brief — JUMVM16FILESRV2</dd></div>
-      <div><dt>Classification</dt><dd>CONFIDENTIAL — Internal Use Only</dd></div>
+      <div><dt>Title</dt><dd>Document Storage Brief, JUMVM16FILESRV2</dd></div>
+      <div><dt>Classification</dt><dd>CONFIDENTIAL, Internal Use Only</dd></div>
       <div><dt>Prepared</dt><dd>2026-05-20</dd></div>
     </dl>
 
@@ -213,7 +213,7 @@
 <footer class="doc-footer">
   <div class="doc-footer__inner">
     <em>Reflecting on the past, building the present, securing the future!</em>
-    <p style="margin: 12px 0 0;">Copyright © 2026 The National Insurance Board of The Commonwealth of The Bahamas. Confidential — internal use only.</p>
+    <p style="margin: 12px 0 0;">Copyright © 2026 The National Insurance Board of The Commonwealth of The Bahamas. Confidential, internal use only.</p>
   </div>
 </footer>
 

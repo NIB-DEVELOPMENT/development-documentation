@@ -1,5 +1,5 @@
 /* ============================================================
-   NIB Online Portal — Design Tokens
+   NIB Online Portal, Design Tokens
    The National Insurance Board of The Commonwealth of The Bahamas
    ------------------------------------------------------------
    Source of truth: online-claims-submissions-frontend
@@ -8,14 +8,14 @@
      - src/assets/styles/*  (typography & layout primitives)
    ============================================================ */
 
-/* Type — Sora is loaded via Google Fonts in the live app.
+/* Type, Sora is loaded via Google Fonts in the live app.
    Montserrat appears as a fallback in Tailwind config but Sora wins
    at the html/body level. We mirror that hierarchy here. */
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
 
 :root {
   /* ---------- BRAND COLORS ---------- */
-  /* Primary blue trio — Tailwind blue-800/700/900 in the live app */
+  /* Primary blue trio, Tailwind blue-800/700/900 in the live app */
   --nib-primary:           #1e40af;   /* primary */
   --nib-primary-lighten:   #1d4ed8;   /* hover state */
   --nib-primary-darken:    #1e3a8a;   /* pressed / deep gradient end */
@@ -29,7 +29,7 @@
 
   /* Accent / portal colors */
   --nib-cadmium-orange:    #e27e2c;   /* "Claims Portal" italic wordmark */
-  --nib-maj-blue:          #4f46e5;   /* Majorelle blue — light-portal text */
+  --nib-maj-blue:          #4f46e5;   /* Majorelle blue, light-portal text */
   --nib-pastel-blue:       #7b8ecd;   /* mid-stop on login gradient */
   --nib-button-blue:       #2ea1e2;   /* legacy CTA blue */
   --nib-dusty-white:       #fdfdff;   /* off-white surface */
@@ -54,17 +54,17 @@
   --blue-gray-600: #475569;
 
   /* ---------- SEMANTIC FOREGROUND / BACKGROUND ---------- */
-  --fg-1:        #111827;   /* primary text — gray-900 */
-  --fg-2:        #374151;   /* body text — gray-700 */
-  --fg-3:        #6b7280;   /* secondary / meta — gray-500 */
-  --fg-4:        #9ca3af;   /* disabled / placeholder — gray-400 */
+  --fg-1:        #111827;   /* primary text, gray-900 */
+  --fg-2:        #374151;   /* body text, gray-700 */
+  --fg-3:        #6b7280;   /* secondary / meta, gray-500 */
+  --fg-4:        #9ca3af;   /* disabled / placeholder, gray-400 */
   --fg-on-dark:  #fdfdff;   /* dusty-white on navy/primary */
-  --fg-link:     #4f46e5;   /* indigo-600 — used for utility links */
-  --fg-accent:   #e27e2c;   /* cadmium-orange — italic brand accent */
+  --fg-link:     #4f46e5;   /* indigo-600, used for utility links */
+  --fg-accent:   #e27e2c;   /* cadmium-orange, italic brand accent */
 
   --bg-canvas:    #ffffff;
   --bg-subtle:    #f3f4f6;        /* gray-100 */
-  --bg-muted:     #f1f5f9;        /* blueGray-100 — table head */
+  --bg-muted:     #f1f5f9;        /* blueGray-100, table head */
   --bg-footer:    #e5e7eb;        /* gray-200 */
   --bg-input:     var(--nib-platinum-gray);
 
@@ -114,9 +114,9 @@
 
   /* ---------- RADII (Tailwind defaults used) ---------- */
   --radius-sm:   0.25rem;  /* rounded */
-  --radius-md:   0.375rem; /* rounded-md — cards, page-sections */
-  --radius-lg:   0.5rem;   /* rounded-lg — portal CTAs, login card */
-  --radius-xl:   0.75rem;  /* rounded-xl — login inputs & primary CTA */
+  --radius-md:   0.375rem; /* rounded-md, cards, page-sections */
+  --radius-lg:   0.5rem;   /* rounded-lg, portal CTAs, login card */
+  --radius-xl:   0.75rem;  /* rounded-xl, login inputs & primary CTA */
   --radius-full: 9999px;   /* avatar / pill chips */
 
   /* ---------- SHADOWS (Tailwind defaults used in app) ---------- */
@@ -139,9 +139,9 @@
   --sp-24: 6rem;      /* 96 */
 
   /* ---------- LAYOUT ---------- */
-  --container-7xl: 80rem;   /* max-w-7xl — top nav & main pages */
-  --container-5xl: 64rem;   /* max-w-5xl — footer column */
-  --container-2xl: 42rem;   /* max-w-2xl — sm portal copy column */
+  --container-7xl: 80rem;   /* max-w-7xl, top nav & main pages */
+  --container-5xl: 64rem;   /* max-w-5xl, footer column */
+  --container-2xl: 42rem;   /* max-w-2xl, sm portal copy column */
 
   /* ---------- BRAND GRADIENTS ---------- */
   --grad-login:   linear-gradient(180deg, #ffffff 0%, #7b8ecd 60%, #1e40af 100%);
@@ -185,7 +185,7 @@ h3.subsection {
   color: var(--fg-2);
 }
 
-/* "NIB Online" wordmark — see ClaimsPortalBrand.vue */
+/* "NIB Online" wordmark, see ClaimsPortalBrand.vue */
 .brand-top {
   font-weight: var(--fw-extrabold);
   color: var(--nib-navy);

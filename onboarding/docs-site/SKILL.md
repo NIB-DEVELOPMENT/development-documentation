@@ -6,15 +6,15 @@ user-invocable: true
 
 Read the `README.md` file within this skill, and explore the other available files.
 
-If creating visual artifacts (slides, mocks, throwaway prototypes, etc.), copy assets out and create static HTML files for the user to view — link `colors_and_type.css` and reference `assets/` directly. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
+If creating visual artifacts (slides, mocks, throwaway prototypes, etc.), copy assets out and create static HTML files for the user to view, link `colors_and_type.css` and reference `assets/` directly. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
 
 If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.
 
 ## Quick orientation
 
-- **Brand**: The National Insurance Board (NIB) — government social-security authority of The Bahamas. Voice is **formal, official, reassuring**. No emoji, no exclamation marks except in the institutional tagline.
+- **Brand**: The National Insurance Board (NIB), government social-security authority of The Bahamas. Voice is **formal, official, reassuring**. No emoji, no exclamation marks except in the institutional tagline.
 - **Primary color**: `#1e40af` (Tailwind blue-800). Hover `#1d4ed8`. Deep `#1e3a8a`.
-- **Accent**: cadmium-orange `#e27e2c` — used *only* in the "Ez" of the **EzCLAIMS** wordmark (`--ez-orange`). Replaced the former italic "Claims Portal" half on 2026-07-29; the new mark is upright.
+- **Accent**: cadmium-orange `#e27e2c`, used *only* in the "Ez" of the **EzCLAIMS** wordmark (`--ez-orange`). Replaced the former italic "Claims Portal" half on 2026-07-29; the new mark is upright.
 - **Typeface**: **Sora** (Google Fonts, weights 300–800). Loaded via `colors_and_type.css`.
 - **Shape language**: white surfaces, `shadow-sm`, `rounded-md` (6px) cards. No gradients in UI chrome (only login splash and the alternating home-page bands).
 - **Icons**: Heroicons outline 24×24, 1.5 stroke. Never emoji.
@@ -32,7 +32,7 @@ If the user invokes this skill without any other guidance, ask them what they wa
 
 ## Patterns to follow
 
-- Page titles: `<h1 class="page-title">` — Sora bold 24, color = primary, capitalized.
+- Page titles: `<h1 class="page-title">`, Sora bold 24, color = primary, capitalized.
 - Forms use 3-col grid `form-content`: section title on left, inputs span the right 2 columns.
 - Tables: `blueGray-100` header, `blueGray-50` zebra rows, `text-xs uppercase tracking-wider` headers.
 - Buttons: `rounded` 4px default; `rounded-xl` 12px on the login CTA only.
@@ -44,12 +44,12 @@ If the user invokes this skill without any other guidance, ask them what they wa
 
 - ❌ Emoji
 - ❌ Bluish-purple gradients (the only purple in the system is `maj-blue` for the light portal band)
-- ❌ Hand-drawn SVG icons — use Heroicons outline or the existing benefit SVGs in `assets/benefits/`
+- ❌ Hand-drawn SVG icons, use Heroicons outline or the existing benefit SVGs in `assets/benefits/`
 - ❌ Marketing exclamations or chatty copy
 - ❌ Left-border accent stripes on cards (one exception: mobile nav active state)
 
 ## Further reading
 
 - Original repo: https://github.com/NIB-DEVELOPMENT/online-claims-submissions-frontend
-- Live wordmark recipe: `src/components/branding/EzClaimsBrand.vue` (metrics in `ezClaimsBrand.ts`). The retired `ClaimsPortalBrand.vue` is kept alongside it on purpose for rollback — do not prune it.
+- Live wordmark recipe: `src/components/branding/EzClaimsBrand.vue` (metrics in `ezClaimsBrand.ts`). The retired `ClaimsPortalBrand.vue` is kept alongside it on purpose for rollback, do not prune it.
 - Custom Tailwind palette: `tailwind.config.js`
