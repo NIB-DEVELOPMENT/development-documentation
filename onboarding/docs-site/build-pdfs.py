@@ -7,11 +7,11 @@ under pdf/ using WeasyPrint. This replaces the client-side html2canvas
 + jsPDF approach (which produces image-based, non-searchable PDFs).
 
 Output naming follows the design system convention:
-    docs/user-manual-print.html       -> pdf/NIB-User-Manual-v1.0.pdf
-    docs/admin-manual-print.html      -> pdf/NIB-Admin-Manual-v1.0.pdf
-    docs/supervisor-manual-print.html -> pdf/NIB-Supervisor-Manual-v1.0.pdf
+    docs/user-manual-print.html       -> pdf/NIB-User-Manual-v1.1.pdf
+    docs/admin-manual-print.html      -> pdf/NIB-Admin-Manual-v1.1.pdf
+    docs/supervisor-manual-print.html -> pdf/NIB-Supervisor-Manual-v1.1.pdf
     docs/storage-brief-print.html     -> pdf/NIB-Document-Storage-Brief-v1.0.pdf
-    docs/index-print.html             -> pdf/NIB-Docs-Index-v1.0.pdf
+    docs/index-print.html             -> pdf/NIB-Docs-Index-v1.1.pdf
 
 Usage:
     python build-pdfs.py             # render all
@@ -27,11 +27,11 @@ PDF_DIR = ROOT / "pdf"
 
 # Map print-html stem -> output PDF filename
 TARGETS = {
-    "user-manual-print":       "NIB-User-Manual-v1.0.pdf",
-    "admin-manual-print":      "NIB-Admin-Manual-v1.0.pdf",
-    "supervisor-manual-print": "NIB-Supervisor-Manual-v1.0.pdf",
+    "user-manual-print":       "NIB-User-Manual-v1.1.pdf",
+    "admin-manual-print":      "NIB-Admin-Manual-v1.1.pdf",
+    "supervisor-manual-print": "NIB-Supervisor-Manual-v1.1.pdf",
     "storage-brief-print":     "NIB-Document-Storage-Brief-v1.0.pdf",
-    "index-print":             "NIB-Docs-Index-v1.0.pdf",
+    "index-print":             "NIB-Docs-Index-v1.1.pdf",
 }
 
 
