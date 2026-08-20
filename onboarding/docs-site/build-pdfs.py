@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-NIB Docs Site — PDF builder.
+NIB Docs Site, PDF builder.
 
 Renders each *-print.html under docs/ into a real text-searchable PDF
 under pdf/ using WeasyPrint. This replaces the client-side html2canvas
